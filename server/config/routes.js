@@ -9,6 +9,7 @@ module.exports = function(app){
   app.post('/login', user.login);
   app.get('/logout', user.logout)
   app.use(authentication);
+  app.get('/getallusers', user.getAllUsers);
 }
 
 

@@ -66,6 +66,16 @@ module.exports = {
         res.json(user)
       }
     })
+  },
+
+  getAllUsers: function(req,res){
+    User.find({}, function(err, users){
+      if(err){
+        res.sendStatus(400)
+      }else{
+        res.json(users);
+      }
+    })
   }
 
 }

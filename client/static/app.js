@@ -16,6 +16,9 @@ app.config(function($routeProvider, $httpProvider){
     templateUrl: 'partials/login.html',
     controller: 'userController'
   })
+  .when('/home',{
+    templateUrl:'partials/home.html',
+  })
   .otherwise({
     redirectTo: '/dashboard'
   })

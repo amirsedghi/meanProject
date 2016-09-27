@@ -9,7 +9,7 @@ app.controller('userController', ['$scope','userFactory','$location','$routePara
     $scope.response = ''
     userFactory.register(user, function(){
       console.log('you have successfully registered');
-      $location.url('/test')
+      $location.url('/home')
     }, function(res){
       $scope.newUser = {}
       $scope.checking = {}
@@ -20,10 +20,18 @@ app.controller('userController', ['$scope','userFactory','$location','$routePara
   $scope.login = function(user){
     userFactory.login(user, function(){
       $scope.check = 'good'
-      $location.url('/dashboard')
+      $location.url('/home')
     }, function(){
       $scope.user = {}
       $scope.check = 'bad'
+    })
+  }
+
+  $scope.allusers = []
+
+  $scope.getAllUsers = function(){
+    userFactory.getAllUsers(function(res){
+      $scope.allusers = res.data;
     })
   }
 
