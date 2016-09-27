@@ -34,11 +34,14 @@ app.controller('userController', ['$scope','userFactory','$location','$routePara
       $scope.allusers = res.data;
     })
   }
-
   $scope.getUser = function(){
     userFactory.getUser(function(user){
-      $scope.user = user
+      $scope.currentuser = user;
     })
   }
+  $scope.getUser();
 
+  $scope.sendRequest = function(friend){
+    userFactory.sendRequest(friend)
+  }
 }])

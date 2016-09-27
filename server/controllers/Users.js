@@ -59,7 +59,7 @@ module.exports = {
   },
 
   getUser: function(req, res){
-    User.findOne({_id: req.session.user._id}, function(err, user){
+    User.findOne({_id: req.session.user._id}).populate({path:'requests',model:'User'}).exec(function(err, user){
       if(err){
         res.sendStatus(400)
       } else{
@@ -69,11 +69,30 @@ module.exports = {
   },
 
   getAllUsers: function(req,res){
-    User.find({}, function(err, users){
+    User.find({"_id":{"$ne":req.session.user._id}}, function(err, users){
       if(err){
         res.sendStatus(400)
       }else{
         res.json(users);
+      }
+    })
+  },
+
+  sendRequest: function(req,res){
+    User.findOne({_id:req.params.id}, function(err, user){
+      if(err){
+        res.sendStatus(500)
+      }else{
+        console.log('success')
+        user.requests.push(req.session.user._id);
+        user.save(function(err){
+          if (err){
+            console.log(err)
+          }else{
+            res.status(200).send('success');
+          }
+        })
+
       }
     })
   }

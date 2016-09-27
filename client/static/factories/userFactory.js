@@ -36,6 +36,18 @@ app.factory('userFactory', ['$http','$location', function($http, $location) {
     })
   }
 
+  factory.sendRequest = function(friend){
+    $http({
+      method:'GET',
+      url:'/request/'+friend
+    }).then(function(res){
+      console.log('success')
+      $location.url('/home')
+    }),function(){
+      console.log('couldnt create request')
+    }
+  }
+
   factory.getAllUsers = function(callback){
     $http({
       method:'GET',
