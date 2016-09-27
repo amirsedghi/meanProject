@@ -8,8 +8,7 @@ var UserSchema = new mongoose.Schema({
   password: {type: String, required: true},
   username: {type: String, required: true},
   requests: [{type: Schema.Types.ObjectId, ref: "User"}],
-  images: [{ data: Buffer, contentType: String }],
-  friends: [{type: Schema.Types.ObjectId, ref: "User"}],
+  images: String,
   create_at: {type: Date, default: Date.now},
   journals: [{type: Schema.Types.ObjectId, ref: "Journal"}]
 })

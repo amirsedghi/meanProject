@@ -36,6 +36,16 @@ app.factory('userFactory', ['$http','$location', function($http, $location) {
     })
   }
 
+  factory.getAllUsers = function(callback){
+    $http({
+      method:'GET',
+      url:'/getallusers'
+    }).then(function(res){
+      callback(res);
+    }), function(){
+      console.log('could not get users');
+    }
+  }
   return factory;
 
 }]);
