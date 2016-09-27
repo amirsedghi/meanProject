@@ -6,7 +6,12 @@ var UserSchema = new mongoose.Schema({
   lastName: {type: String, required: true},
   email: {type: String, required: true},
   password: {type: String, required: true},
-  create_at: {type: Date, default: Date.now}
+  username: {type: String, required: true},
+  requests: [{type: Schema.Types.ObjectId, ref: "User"}],
+  images: [{ data: Buffer, contentType: String }],
+  friends: [{type: Schema.Types.ObjectId, ref: "User"}],
+  create_at: {type: Date, default: Date.now},
+  journals: [{type: Schema.Types.ObjectId, ref: "Journal"}]
 })
 
 mongoose.model('User', UserSchema)
