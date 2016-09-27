@@ -13,6 +13,7 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
+    "filepicker-js": "^2.4.17",
     "mongoose": "^4.6.1"
   }
 }
