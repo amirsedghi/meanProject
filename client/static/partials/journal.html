@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/journalStyle.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <title>Journal</title>
+</head>
+<body>
+  <div ng-controller="userController" class='container'>
+    <div class='header'>
+      <div id='header-left'>
+        <a href="#/profile"><span class="glyphicon glyphicon-user"></span></a>
+      </div>
+      <div id="header-middle">
+      <p>category stuff</p>
+      </div>
+      <div id='header-right'>
+        <a href="/logout">Logout</a>
+      </div>
+    </div>
+    Add Chapter: <a href="#/createChapter"><span class="glyphicon glyphicon-plus"></span></a>
+    <div id="album">
+      <h4>Dude what a trip...</h4>
+      <a href="#/photoAlbum"><img src="http://hungarytoday.hu/wp-content/uploads/2016/04/jackie-chan-would-really-like-to-see-some-countries-have-a-disaster.jpg" class="image-circle"></a>
+    </div>
+
+  </div>
+</body>
+</html>

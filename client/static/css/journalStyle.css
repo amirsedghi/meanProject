@@ -1,0 +1,45 @@
+.container{
+  width: 700px;
+  height: 700px;
+  border: 1px solid black;
+}
+
+.header{
+  /*border: 1px solid black;*/
+  height: 70px;
+}
+#header-left{
+  border-right: 1px solid black;
+  padding-right: 50px;
+  display: inline-block;
+  height: 50px;
+}
+#header-middle{
+  display: inline-block;
+  /*border: 1px solid black;*/
+  width: 500px;
+  height: 50px;
+
+}
+#header-right{
+  border-left: 1px solid black;
+  padding-left: 50px;
+  float: right;
+  display: inline-block;
+  height: 50px;
+}
+#album{
+  /*border: 1px solid black;*/
+  height: 300px;
+}
+
+#album h4{
+  margin-left: 270px;
+}
+.image-circle{
+  margin: 0px 20px 0px 250px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+
+}
