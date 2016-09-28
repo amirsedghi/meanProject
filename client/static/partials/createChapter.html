@@ -1,3 +1,41 @@
-<div>
-  <p>Settings</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/journalStyle.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <title>Journal</title>
+</head>
+<body>
+  <div class="createContent">
+  <div class='header'>
+    <div id='header-left'>
+      <a href="#/profile"><span class="glyphicon glyphicon-user"></span></a>
+    </div>
+    <div id="header-middle">
+    <p>Add Content!</p>
+    </div>
+    <div id='header-right'>
+      <a href="/logout">Logout</a>
+    </div>
+  </div>
+  <form>
+  <p>Add some pictures<input type="filepicker" data-fp-apikey = "An73odSkVTOjjvkC0Sctwz" onchange="alert(event.fpfile.url)"></p>
+  <p>Choose from an existing chapter: <select name="chapter" ng-repeat="chapter in chapters">
+    <option value="{{chapter}}">{{chapter}}</option>
+  </select></p>
+  <p>Or make a whole new one <input name="chapter" placeholder="New chapter..."></p>
+  <p>Choose from an existing category: <select name="category" ng-repeat="category in categories">
+    <option value="{{category}}">{{category}}</option>
+  </select></p>
+  <p>Or make a whole new one <input name="category" placeholder="New category..."></p>
+  <p>Title of content: <input type="text" name="title"></p>
+  <p>Describe it!</p>
+  <textarea name="description" rows="8" cols="40"></textarea>
+  <button type="submit">Add content</button>
+</from>
 </div>
+</body>
+</html>
