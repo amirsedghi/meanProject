@@ -10,6 +10,8 @@ module.exports = function(app){
   app.get('/logout', user.logout)
   app.use(authentication);
   app.get('/getallusers', user.getAllUsers);
+  app.get('/getUser', user.getUser);
+  app.post('/updateUser', user.update)
 }
 
 

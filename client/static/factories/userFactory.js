@@ -46,6 +46,21 @@ app.factory('userFactory', ['$http','$location', function($http, $location) {
       console.log('could not get users');
     }
   }
+
+  factory.updateUser = function(data, callback){
+    console.log('HERE IS THE DATA OK...');
+    console.log(data);
+    $http({
+      method: 'POST',
+      url: '/updateUser',
+      data: {image: data}
+    }).then(function(){
+      callback()
+    }, function(){
+      console.log('could not update the data');
+    })
+  }
+
   return factory;
 
 }]);

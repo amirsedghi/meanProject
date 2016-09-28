@@ -1,8 +1,9 @@
-var express = require('express')
-var path = require('path')
-var app = express()
-var bodyParser = require('body-parser')
-var session = require('express-session')
+var express = require('express');
+var path = require('path');
+var app = express();
+var bodyParser = require('body-parser');
+var session = require('express-session');
+var morgan = require('morgan');
 
 var sessionConfig = {
   secret: 'aSecret',
@@ -19,8 +20,8 @@ var sessionConfig = {
 app.use(session(sessionConfig))
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json({extended:true}))
+app.use(bodyParser.text());
 app.use(express.static(path.join(__dirname, "client", "static")))
-
 
 
 
