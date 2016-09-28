@@ -1,6 +1,6 @@
 
 .container{
-  padding-top: 70px;
+  padding-top: 50px;
   height: 850px;
   width: 600px;
   margin: auto;
@@ -29,9 +29,9 @@
 }
 
 .content{
-  margin: 10px 30px 0px 30px;
+  margin: 0px 30px 0px 30px;
   background-color: white;
-  height: 700px;
+  height: 750px;
   width: 510px;
   overflow-y: scroll;
 }
@@ -45,4 +45,5 @@
   height: 100px;
   border-radius: 50%;
   display: inline-block;
+  overflow: hidden;
 }
