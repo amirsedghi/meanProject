@@ -5,7 +5,8 @@
   width: 600px;
   margin: auto;
   background-color: #0077DD;
-  border-radius: 5%;
+  border-bottom-left-radius:5%;
+  border-bottom-right-radius:5%;
 }
 
 #photo{
@@ -21,8 +22,27 @@
   border-radius: 50%;
 }
 #updates{
-  margin: 30px 35px 0px 35px;
+  margin: 30px 30px 0px 30px;
   height: 500px;
-  width: 500px;
+  width: 510px;
   background-color: white;
+}
+
+.content{
+  margin: 10px 30px 0px 30px;
+  background-color: white;
+  height: 700px;
+  width: 510px;
+  overflow-y: scroll;
+}
+.friends{
+  display: inline-block;
+}
+.friends-image{
+  margin: 10px 10px 10px 10px;
+  border: 3px solid #D7D7D7;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: inline-block;
 }
