@@ -9,33 +9,62 @@
   <title>Journal</title>
 </head>
 <body>
-  <div class="createContent">
-  <div class='header'>
-    <div id='header-left'>
-      <a href="#/profile"><span class="glyphicon glyphicon-user"></span></a>
+  <div class="createContent" display="">
+    <div class="headerDiv">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">UI</a>
     </div>
-    <div id="header-middle">
-    <p>Add Content!</p>
-    </div>
-    <div id='header-right'>
-      <a href="/logout">Logout</a>
-    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#/profile"><span class="glyphicon glyphicon-user"></span></a></li>
+        <li><a href="#/createChapter"><span class="glyphicon glyphicon-plus"></span></a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-exclamation-sign"></span><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Put request here</a></li>
+            </ul>
+        <li><a href="#/logout"><span class="glyphicon glyphicon-remove-sign"></span></a></li>
+          </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </nav>
   </div>
+  <div class="enterContent">
   <form>
-  <p>Add some pictures<input type="filepicker" data-fp-apikey = "An73odSkVTOjjvkC0Sctwz" onchange="alert(event.fpfile.url)"></p>
-  <p>Choose from an existing chapter: <select name="chapter" ng-repeat="chapter in chapters">
-    <option value="{{chapter}}">{{chapter}}</option>
-  </select></p>
-  <p>Or make a whole new one <input name="chapter" placeholder="New chapter..."></p>
-  <p>Choose from an existing category: <select name="category" ng-repeat="category in categories">
-    <option value="{{category}}">{{category}}</option>
-  </select></p>
-  <p>Or make a whole new one <input name="category" placeholder="New category..."></p>
-  <p>Title of content: <input type="text" name="title"></p>
-  <p>Describe it!</p>
-  <textarea name="description" rows="8" cols="40"></textarea>
-  <button type="submit">Add content</button>
+    <p>Add some pictures<div class="form-group"><input type="filepicker" data-fp-apikey = "An73odSkVTOjjvkC0Sctwz" onchange="alert(event.fpfile.url)"></div></p>
+    <p>Choose from an existing chapter: <select name="chapter" ng-repeat="chapter in chapters">
+      <option value="{{chapter}}">{{chapter}}</option>
+    </select></p>
+    <div class="form-group">
+      <label for="usr">Or make a new one!:</label>
+      <input type="text" class="form-control" id="usr" name="chapter">
+    </div>
+
+    <p>Choose from an existing category: <select name="category" ng-repeat="category in categories">
+      <option value="{{category}}">{{category}}</option>
+    </select></p>
+    <div class="form-group">
+      <label for="usr">Or make a new one!:</label>
+      <input type="text" class="form-control" id="usr" name="category">
+    </div>
+    <div class="form-group">
+      <label for="usr">Title:</label>
+      <input type="text" class="form-control" id="usr" name="titles">
+    </div>
+    <p>Describe it!</p>
+    <textarea name="description" rows="8" cols="40"></textarea>
+    <button type="submit">Add content</button>
 </from>
+</div>
 </div>
 </body>
 </html>
