@@ -42,6 +42,15 @@ app.controller('userController', ['$scope','userFactory','$location','$routePara
   $scope.getUser();
 
   $scope.sendRequest = function(friend){
-    userFactory.sendRequest(friend)
+    userFactory.sendRequest(friend);
+  }
+
+  $scope.acceptRequest = function(friend){
+    userFactory.acceptRequest(friend, function(journal){
+      $location.url('/journal/'+journal)
+    });
+  }
+  $scope.denyRequest = function(friend){
+    userFactory.denyRequest(friend, $scope.getUser);
   }
 }])

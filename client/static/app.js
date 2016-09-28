@@ -19,6 +19,9 @@ app.config(function($routeProvider, $httpProvider){
   .when('/home',{
     templateUrl:'partials/home.html',
   })
+  .when('/journal/:id',{
+    templateUrl:'partials/journal.html'
+  })
   .otherwise({
     redirectTo: '/dashboard'
   })
