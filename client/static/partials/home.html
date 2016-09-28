@@ -1,8 +1,120 @@
 <div ng-controller="userController">
+<<<<<<< HEAD
 
     <a href="/logout">Logout</a> <a href="#/profile">profile</a>
   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" ng-click="getAllUsers()" data-target="#myModal">Make A Connection</button>
+=======
+<nav class="navbar navbar-light navbar-fixed-top" style="background-color: #e3f2fd;" role="navigation">
+  <link rel="stylesheet" href="../css/journalStyle.css">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <a class="navbar-brand" href="#/home">yoUi</a>
+  </div>
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li><a href="#/profile"><span class="glyphicon glyphicon-user"></span></a></li>
+      <li><a href="" data-toggle="modal" ng-click="getAllUsers()" data-target="#myModal"><span class="glyphicon glyphicon-search"></span></a></li>
+      <li class="dropdown">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-exclamation-sign"></span><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Put request here</a></li>
+          </ul>
+      </li>
+      <li><a href="/logout"><span class="glyphicon glyphicon-remove-sign"></span></a></li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+<link rel="stylesheet" href="../css/journalStyle.css">
+  <div class="container">
+    <div id="content">
 
+    <div id="left-stuff">
+      <p>stuff</p>
+    </div>
+    <div id="welcome">
+      <div id="welcome-header">
+        <p>welcome</p>
+      </div>
+      <div id="friends">
+        <div class="image-box">
+          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
+          <p>Jackie</p>
+        </div>
+        <div class="image-box">
+          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
+          <p>Jackie</p>
+        </div>
+        <div class="image-box">
+          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
+          <p>Jackie</p>
+        </div>
+        <div class="image-box">
+          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
+          <p>Jackie</p>
+        </div>
+        <div class="image-box">
+          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
+          <p>Jackie</p>
+        </div>
+        <div class="image-box">
+          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
+          <p>Jackie</p>
+        </div>
+        <div class="image-box">
+          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
+          <p>Jackie</p>
+        </div>
+        <div class="image-box">
+          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
+          <p>Jackie</p>
+        </div>
+        <div class="image-box">
+          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
+          <p>Jackie</p>
+        </div>
+
+
+      </div>
+    </div>
+    <div id="right-stuff">
+    <p>stuff</p>
+    </div>
+  </div>
+>>>>>>> c522bc81e1b1aa3c59e76c495adffc72f31003c9
+
+
+
+
+
+<!-- this top part is the nav bar. Please try to combine the two. Loc already put the log out button -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+  <div ng-if="currentuser.requests.length>0">
+    <b>Requests!</b>
+    <div ng-repeat="request in currentuser.requests">
+      <b>{{request.username}}</b> {{request.firstName}} {{request.lastName}} <button type="button" name="button" class="btn btn-default" ng-click="acceptRequest(request._id)" style="background-color:#31B0D5; color:white;">Accept</button><button type="button" name="button" ng-click="denyRequest(request._id)"class="btn btn-default" style="background-color:#fc8888; color:white;">Deny</button>
+    </div>
+  </div>
+
+  <div ng-if="currentuser.journals.length>0">
+    <b>Journals</b>
+    <div ng-repeat="journal in currentuser.journals">
+      <div ng-if="journal._friend1._id==currentuser._id">
+        <a href="#/journal/{{journal._id}}"><b>{{currentuser.username}}'s</b> and <b>{{journal._friend2.username}}'s</b> Journal</a>
+      </div>
+      <div ng-if="journal._friend2._id==currentuser._id">
+        <a href="#/journal/{{journal._id}}"><b>{{currentuser.username}}'s</b> and <b>{{journal._friend1.username}}'s</b> Journal</a>
+      </div>
+    </div>
+  </div>
   <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
@@ -13,8 +125,9 @@
         </div>
         <div class="modal-body">
           <input placeholder="Search..." type="text" ng-model="userFilter">
-          <div ng-repeat='user in allusers|filter:userFilter|limitTo:3'>
-            <b>{{user.username}}</b> {{user.firstName}} {{user.lastName}} <button type="button" class="btn btn-default">Add</button>
+          <div ng-repeat="user in allusers|filter:userFilter|limitTo:3">
+              <b>{{user.username}}</b> {{user.firstName}} {{user.lastName}} <button type="button" data-dismiss="modal" class="btn btn-default" ng-click="sendRequest(user._id)">Add</button>
+
           </div>
         </div>
         <div class="modal-footer">
@@ -24,8 +137,14 @@
 
     </div>
   </div>
+<<<<<<< HEAD
   <h3>Welcome {{user.firstName}}</h3>
   <div class="">
     <img src="{{user.picture}}" alt="" />
+=======
+
+
+
+>>>>>>> c522bc81e1b1aa3c59e76c495adffc72f31003c9
   </div>
 </div>

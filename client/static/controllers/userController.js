@@ -34,22 +34,23 @@ app.controller('userController', ['$scope','userFactory','$location','$routePara
       $scope.allusers = res.data;
     })
   }
-
   $scope.getUser = function(){
     userFactory.getUser(function(user){
-      $scope.user = user
+      $scope.currentuser = user;
     })
   }
+  $scope.getUser();
 
-  $scope.updateUser = function(data){
-    userFactory.updateUser(data, function(){
-      $scope.getUser();
-      
-    })
+  $scope.sendRequest = function(friend){
+    userFactory.sendRequest(friend);
   }
 
-
-
-  $scope.getUser()
-
+  $scope.acceptRequest = function(friend){
+    userFactory.acceptRequest(friend, function(journal){
+      $location.url('/journal/'+journal)
+    });
+  }
+  $scope.denyRequest = function(friend){
+    userFactory.denyRequest(friend, $scope.getUser);
+  }
 }])

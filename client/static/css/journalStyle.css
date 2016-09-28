@@ -1,0 +1,60 @@
+
+.container{
+  padding-top: 50px;
+  height: 850px;
+  width: 1000px;
+  margin: auto;
+  border: 2px solid #A3ADB5;
+}
+
+#content{
+  width: 950px;
+  height: 800px;
+  margin: auto;
+}
+#welcome{
+  width: 800px;
+  height: 775px;
+  margin: 0px 5px 0px 5px;
+  /*border: 1px solid black;*/
+  display: inline-block;
+  vertical-align: top;
+}
+
+#welcome-header{
+  width: 800px;
+  height: 300px;
+  border: 1px solid black;
+}
+
+#left-stuff{
+  height: 775px;
+  width: 65px;
+  display: inline-block;
+  border: 1px solid black;
+}
+#right-stuff{
+  height: 775px;
+  width: 65px;
+  display: inline-block;
+  border: 1px solid black;
+}
+#friends{
+  width: 800px;
+  height: 475px;
+  overflow-y: scroll;
+}
+.image-box{
+  margin: 20px 25px 10px 30px;
+  width: 200px;
+  height: 250px;
+  display: inline-block;
+}
+
+.friends-images{
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+
+}

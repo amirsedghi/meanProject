@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
-
+var Journal = mongoose.model('Journal')
 
 module.exports = {
 
@@ -59,7 +59,7 @@ module.exports = {
   },
 
   getUser: function(req, res){
-    User.findOne({_id: req.session.user._id}, function(err, user){
+    User.findOne({_id: req.session.user._id}).populate({path:'requests',model:'User'}).populate({path:'journals',populate:[{path: '_friend1', model:'User'}, {path:'_friend2',model:'User'}]}).exec(function(err, user){
       if(err){
         res.sendStatus(400)
       } else{
@@ -69,7 +69,7 @@ module.exports = {
   },
 
   getAllUsers: function(req,res){
-    User.find({}, function(err, users){
+    User.find({"_id":{"$ne":req.session.user._id}}, function(err, users){
       if(err){
         res.sendStatus(400)
       }else{
@@ -78,6 +78,7 @@ module.exports = {
     })
   },
 
+<<<<<<< HEAD
   update: function(req, res){
     console.log('it got here and here is the req.body.image');
     console.log(req.body.image);
@@ -88,6 +89,95 @@ module.exports = {
         res.sendStatus(200)
       }
     })
+=======
+  sendRequest: function(req,res){
+    User.findOne({_id:req.params.id}, function(err, user){
+      if(err){
+        res.sendStatus(500)
+      }else{
+        console.log('success')
+        user.requests.push(req.session.user._id);
+        user.save(function(err){
+          if (err){
+            console.log(err)
+          }else{
+            res.status(200).send('success');
+          }
+        })
+
+      }
+    })
+  },
+
+  acceptRequest: function(req,res){
+    User.findOne({_id:req.session.user._id}, function(err, user){
+      if (err){
+        res.sendStatus(500);
+      }else{
+        for(var i = 0; i < user.requests.length; i++){
+          if(user.requests[i]==req.body.friend){
+            user.requests.splice(i,1);
+          }
+        }
+        user.save(function(err){
+          if(err){
+            console.log(err)
+          }
+        })
+        var newjournal = new Journal({_friend1:req.session.user._id, _friend2:req.body.friend});
+        newjournal.save(function(err){
+          if(err){
+            console.log(err)
+            res.sendStatus(500);
+          }else{
+
+            user.journals.push(newjournal._id);
+            user.save(function(err){
+              if(err){
+                console.log(err)
+              }else{
+                User.findOne({_id:req.body.friend}, function(err,user2){
+                  if(err){
+                    console.log(err)
+                  }else{
+                    user2.journals.push(newjournal._id);
+                    user2.save(function(err){
+                      if(err){
+                        console.log(err)
+                      }else{
+                        res.json(newjournal._id);
+                      }
+                    })
+                  }
+                });
+              }
+            })
+          }
+        })
+      }
+    })
+  },
+
+  denyRequest: function(req,res){
+      User.findOne({_id:req.session.user._id}, function(err, user){
+        if (err){
+          res.sendStatus(500);
+        }else{
+          for(var i = 0; i < user.requests.length; i++){
+            if(user.requests[i]==req.body.friend){
+              user.requests.splice(i,1);
+            }
+          }
+          user.save(function(err){
+            if(err){
+              console.log(err)
+            }else{
+              res.status(200).send('successfully denied request')
+            }
+          });
+        }
+      })
+>>>>>>> c522bc81e1b1aa3c59e76c495adffc72f31003c9
   }
 
 }
