@@ -1,5 +1,5 @@
 var user =require('../controllers/Users.js');
-
+var journal =require('../controllers/Journals.js');
 console.log('GOING THROUGH THE ROUTES');
 
 
@@ -12,6 +12,8 @@ module.exports = function(app){
   app.get('/getuser', user.getUser);
   app.get('/getallusers', user.getAllUsers);
   app.get('/request/:id', user.sendRequest);
+  app.post('/acceptrequest', user.acceptRequest);
+  app.post('/denyrequest', user.denyRequest);
 }
 
 

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
-
+var Journal = mongoose.model('Journal')
 
 module.exports = {
 
@@ -59,7 +59,7 @@ module.exports = {
   },
 
   getUser: function(req, res){
-    User.findOne({_id: req.session.user._id}).populate({path:'requests',model:'User'}).exec(function(err, user){
+    User.findOne({_id: req.session.user._id}).populate({path:'requests',model:'User'}).populate({path:'journals',populate:[{path: '_friend1', model:'User'}, {path:'_friend2',model:'User'}]}).exec(function(err, user){
       if(err){
         res.sendStatus(400)
       } else{
@@ -95,6 +95,76 @@ module.exports = {
 
       }
     })
+  },
+
+  acceptRequest: function(req,res){
+    User.findOne({_id:req.session.user._id}, function(err, user){
+      if (err){
+        res.sendStatus(500);
+      }else{
+        for(var i = 0; i < user.requests.length; i++){
+          if(user.requests[i]==req.body.friend){
+            user.requests.splice(i,1);
+          }
+        }
+        user.save(function(err){
+          if(err){
+            console.log(err)
+          }
+        })
+        var newjournal = new Journal({_friend1:req.session.user._id, _friend2:req.body.friend});
+        newjournal.save(function(err){
+          if(err){
+            console.log(err)
+            res.sendStatus(500);
+          }else{
+
+            user.journals.push(newjournal._id);
+            user.save(function(err){
+              if(err){
+                console.log(err)
+              }else{
+                User.findOne({_id:req.body.friend}, function(err,user2){
+                  if(err){
+                    console.log(err)
+                  }else{
+                    user2.journals.push(newjournal._id);
+                    user2.save(function(err){
+                      if(err){
+                        console.log(err)
+                      }else{
+                        res.json(newjournal._id);
+                      }
+                    })
+                  }
+                });
+              }
+            })
+          }
+        })
+      }
+    })
+  },
+
+  denyRequest: function(req,res){
+      User.findOne({_id:req.session.user._id}, function(err, user){
+        if (err){
+          res.sendStatus(500);
+        }else{
+          for(var i = 0; i < user.requests.length; i++){
+            if(user.requests[i]==req.body.friend){
+              user.requests.splice(i,1);
+            }
+          }
+          user.save(function(err){
+            if(err){
+              console.log(err)
+            }else{
+              res.status(200).send('successfully denied request')
+            }
+          });
+        }
+      })
   }
 
 }

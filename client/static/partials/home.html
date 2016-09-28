@@ -5,7 +5,19 @@
   <div ng-if="currentuser.requests.length>0">
     <b>Requests!</b>
     <div ng-repeat="request in currentuser.requests">
-      <b>{{request.username}}</b> {{request.firstName}} {{request.lastName}} <button type="button" name="button" class="btn btn-default" style="background-color:#31B0D5; color:white;">Accept</button><button type="button" name="button" class="btn btn-default" style="background-color:#fc8888; color:white;">Deny</button>
+      <b>{{request.username}}</b> {{request.firstName}} {{request.lastName}} <button type="button" name="button" class="btn btn-default" ng-click="acceptRequest(request._id)" style="background-color:#31B0D5; color:white;">Accept</button><button type="button" name="button" ng-click="denyRequest(request._id)"class="btn btn-default" style="background-color:#fc8888; color:white;">Deny</button>
+    </div>
+  </div>
+
+  <div ng-if="currentuser.journals.length>0">
+    <b>Journals</b>
+    <div ng-repeat="journal in currentuser.journals">
+      <div ng-if="journal._friend1._id==currentuser._id">
+        <a href="#/journal/{{journal._id}}"><b>{{currentuser.username}}'s</b> and <b>{{journal._friend2.username}}'s</b> Journal</a>
+      </div>
+      <div ng-if="journal._friend2._id==currentuser._id">
+        <a href="#/journal/{{journal._id}}"><b>{{currentuser.username}}'s</b> and <b>{{journal._friend1.username}}'s</b> Journal</a>
+      </div>
     </div>
   </div>
   <div id="myModal" class="modal fade" role="dialog">

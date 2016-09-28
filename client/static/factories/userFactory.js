@@ -58,6 +58,30 @@ app.factory('userFactory', ['$http','$location', function($http, $location) {
       console.log('could not get users');
     }
   }
+
+  factory.acceptRequest= function(friend, callback){
+    $http({
+      method:'post',
+      url:'/acceptrequest',
+      data:{friend:friend}
+    }).then(function(res){
+      callback(res.data);
+    }), function(){
+      console.log('couldnt accept');
+    }
+  }
+
+  factory.denyRequest= function(friend, callback){
+    $http({
+      method:'post',
+      url:'/denyrequest',
+      data:{friend:friend}
+    }).then(function(res){
+      callback();
+    }), function(){
+      console.log('couldnt deny');
+    }
+  }
   return factory;
 
 }]);
