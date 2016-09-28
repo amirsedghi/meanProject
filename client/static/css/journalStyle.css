@@ -1,12 +1,11 @@
 
 .container{
-  padding-top: 70px;
+  padding-top: 50px;
   height: 850px;
   width: 600px;
   margin: auto;
-  background-color: #0077DD;
-  border-bottom-left-radius:5%;
-  border-bottom-right-radius:5%;
+  background-color: #337AB7;
+  border: 2px solid grey;
 }
 
 #photo{
@@ -16,7 +15,7 @@
 
 }
 .image-circle{
-  border: 3px solid #D7D7D7;
+  border: 3px solid #E3F2FD;
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -29,9 +28,10 @@
 }
 
 .content{
-  margin: 10px 30px 0px 30px;
+  border-radius: 1%;
+  margin: 0px 30px 0px 30px;
   background-color: white;
-  height: 700px;
+  height: 750px;
   width: 510px;
   overflow-y: scroll;
 }
@@ -40,9 +40,21 @@
 }
 .friends-image{
   margin: 10px 10px 10px 10px;
-  border: 3px solid #D7D7D7;
+  border: 3px solid #e3f2fd;
   width: 100px;
   height: 100px;
   border-radius: 50%;
   display: inline-block;
+}
+
+.profile-image{
+  border: 2px solid #e3f2fd;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.content h1{
+display: inline-block;
 }
