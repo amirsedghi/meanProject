@@ -6,8 +6,9 @@
   <link rel="stylesheet" href="../css/createChapterStyle.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
   <script src="https://silviomoreto.github.io/bootstrap-select/javascripts/bootstrap-select.js"></script>
-  <script src="https://silviomoreto.github.io/bootstrap-select/stylesheets/bootstrap-select.css"></script>
+  <link rel="stylesheet" href="https://silviomoreto.github.io/bootstrap-select/stylesheets/bootstrap-select.css">
   <title>Journal</title>
 </head>
 <body>
@@ -41,47 +42,57 @@
   </nav>
   </div>
   <div class="enterContent">
-  <form class="form-horizontal">
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="usr">Add some pictures: </label>
-      <div class="col-sm-10">
-        <input type="filepicker" data-fp-apikey = "An73odSkVTOjjvkC0Sctwz" onchange="alert(event.fpfile.url)">
-      </div>
-    </div>
-    <div class="form-group">
-    <label class="control-label col-sm-2" for="usr">Choose from an existing chapter: </label>
-    <select class="selectpicker" name="chapter" ng-repeat="chapter in chapters">
-      <option value="{{chapter}}">{{chapter}}</option>
-    </select>
-    </div>
+    <form class="form-horizontal">
       <div class="form-group">
-        <label class="control-label col-sm-2" for="usr">Or make a new one!:</label>
+        <label class="control-label col-sm-2" for="usr">Add some pictures: </label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="usr" name="chapter">
+          <input type="filepicker" data-fp-apikey = "An73odSkVTOjjvkC0Sctwz" onchange="alert(event.fpfile.url)">
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-sm-2" for="usr">Choose from an existing chapter: </label>
-        <select class="selectpicker" name="category" ng-repeat="category in categories">
-          <option value="{{category}}">{{category}}</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="usr">Or make a new one!:</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="usr" name="category">
+        <label class="control-label col-sm-2" for="usr">Choose a chapter: </label>
+        <div class="control-label col-sm-2">
+          <select class="form-control" name="chapter" ng-repeat="chapter in chapters">
+            <option  value="{{chapter}}">{{chapter}}</option>
+          </select>
         </div>
       </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="usr">Title:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="usr" name="titles">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="usr">Or make a new one!:</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="usr" name="chapter">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="usr">Choose a chapter: </label>
+          <div class="control-label col-sm-2">
+            <select class="form-control" name="category" ng-repeat="category in categories">
+              <option value="{{category}}">{{category}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="usr">Or make a new one!:</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="usr" name="category">
+          </div>
+        </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="usr">Title:</label>
+        <div class="col-sm-2">
+          <input type="text" class="form-control" id="usr" name="title">
+        </div>
       </div>
-    </div>
-    <p>Describe it!</p>
-    <textarea name="description" rows="8" cols="40"></textarea>
-    <button type="submit">Add content</button>
-</form>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="usr">Describe it! </label>
+        <div class="col-sm-4">
+          <textarea class="form-control" name="description" rows="8" cols="40"></textarea>
+        </div>
+      </div>
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class = "btn btn-primary">Add content</button>
+      </div>
+    </form>
 </div>
 </div>
 </body>
