@@ -2,59 +2,59 @@
 .container{
   padding-top: 50px;
   height: 850px;
-  width: 600px;
+  width: 1000px;
   margin: auto;
-  background-color: #337AB7;
-  border: 2px solid grey;
+  border: 2px solid #A3ADB5;
 }
 
-#photo{
+#content{
+  width: 950px;
+  height: 800px;
   margin: auto;
-  width: 200px;
-  height: 200px;
-
 }
-.image-circle{
-  border: 3px solid #E3F2FD;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-}
-#updates{
-  margin: 30px 30px 0px 30px;
-  height: 500px;
-  width: 510px;
-  background-color: white;
+#welcome{
+  width: 800px;
+  height: 775px;
+  margin: 0px 5px 0px 5px;
+  /*border: 1px solid black;*/
+  display: inline-block;
+  vertical-align: top;
 }
 
-.content{
-  border-radius: 1%;
-  margin: 0px 30px 0px 30px;
-  background-color: white;
-  height: 750px;
-  width: 510px;
+#welcome-header{
+  width: 800px;
+  height: 300px;
+  border: 1px solid black;
+}
+
+#left-stuff{
+  height: 775px;
+  width: 65px;
+  display: inline-block;
+  border: 1px solid black;
+}
+#right-stuff{
+  height: 775px;
+  width: 65px;
+  display: inline-block;
+  border: 1px solid black;
+}
+#friends{
+  width: 800px;
+  height: 475px;
   overflow-y: scroll;
 }
-.friends{
-  display: inline-block;
-}
-.friends-image{
-  margin: 10px 10px 10px 10px;
-  border: 3px solid #e3f2fd;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+.image-box{
+  margin: 20px 25px 10px 30px;
+  width: 200px;
+  height: 250px;
   display: inline-block;
 }
 
-.profile-image{
-  border: 2px solid #e3f2fd;
-  width: 75px;
-  height: 75px;
+.friends-images{
   border-radius: 50%;
-  display: inline-block;
-}
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
 
-.content h1{
-display: inline-block;
 }
