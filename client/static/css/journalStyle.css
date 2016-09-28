@@ -1,55 +1,28 @@
+
 .container{
-  width: 700px;
-  height: 700px;
-  border: 1px solid black;
-}
-
-.header{
-  /*border: 1px solid black;*/
-  height: 70px;
-}
-#header-left{
-  border-right: 1px solid black;
-  padding-right: 50px;
-  display: inline-block;
-  height: 50px;
-}
-#header-middle{
-  display: inline-block;
-  /*border: 1px solid black;*/
-  width: 500px;
-  height: 50px;
-
-}
-#header-right{
-  border-left: 1px solid black;
-  padding-left: 50px;
-  float: right;
-  display: inline-block;
-  height: 50px;
-}
-#album{
   padding-top: 70px;
-  border: 1px solid black;
-  height: 800px;
+  height: 850px;
   width: 600px;
   margin: auto;
+  background-color: #0077DD;
+  border-radius: 5%;
 }
 
 #photo{
   margin: auto;
   width: 200px;
   height: 200px;
+
 }
 .image-circle{
-  border: 1px solid grey;
+  border: 3px solid #D7D7D7;
   width: 200px;
   height: 200px;
   border-radius: 50%;
 }
 #updates{
-  margin: 20px 100px 0px 100px;
-  border: 1px solid black;
-  height: 400px;
-  width: 400px;
+  margin: 30px 35px 0px 35px;
+  height: 500px;
+  width: 500px;
+  background-color: white;
 }
