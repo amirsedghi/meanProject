@@ -29,17 +29,27 @@
   height: 50px;
 }
 #album{
-  /*border: 1px solid black;*/
-  height: 300px;
+  padding-top: 70px;
+  border: 1px solid black;
+  height: 800px;
+  width: 600px;
+  margin: auto;
 }
 
-#album h4{
-  margin-left: 270px;
+#photo{
+  margin: auto;
+  width: 200px;
+  height: 200px;
 }
 .image-circle{
-  margin: 0px 20px 0px 250px;
+  border: 1px solid grey;
   width: 200px;
   height: 200px;
   border-radius: 50%;
-
+}
+#updates{
+  margin: 20px 100px 0px 100px;
+  border: 1px solid black;
+  height: 400px;
+  width: 400px;
 }
