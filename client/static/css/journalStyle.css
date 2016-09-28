@@ -5,8 +5,7 @@
   width: 600px;
   margin: auto;
   background-color: #337AB7;
-  border-bottom-left-radius:5%;
-  border-bottom-right-radius:5%;
+  border: 2px solid grey;
 }
 
 #photo{
@@ -31,7 +30,7 @@
 .content{
   border-radius: 1%;
   margin: 0px 30px 0px 30px;
-  background-color: #E3F2FD;
+  background-color: white;
   height: 750px;
   width: 510px;
   overflow-y: scroll;
@@ -41,7 +40,7 @@
 }
 .friends-image{
   margin: 10px 10px 10px 10px;
-  border: 3px solid white;
+  border: 3px solid #e3f2fd;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -49,7 +48,7 @@
 }
 
 .profile-image{
-  border: 2px solid white;
+  border: 2px solid #e3f2fd;
   width: 75px;
   height: 75px;
   border-radius: 50%;
