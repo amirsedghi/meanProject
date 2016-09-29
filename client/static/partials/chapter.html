@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/createChapterStyle.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
-  <script src="https://silviomoreto.github.io/bootstrap-select/javascripts/bootstrap-select.js"></script>
-  <link rel="stylesheet" href="https://silviomoreto.github.io/bootstrap-select/stylesheets/bootstrap-select.css">
-  <title>Journal</title>
-</head>
-<body>
+
+<div ng-controller="journalController" ng-init="getjournalanduser()">
 <div class = "head">
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <link rel="stylesheet" href="../css/journalStyle.css">
@@ -23,7 +11,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="/">UI</a>
+    <a class="navbar-brand" href="#/home">UI</a>
   </div>
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -41,6 +29,23 @@
   </div><!-- /.navbar-collapse -->
 </nav>
 </div>
+<br><br><br>
+  <div class="content">
+    <h1 style="text-align:center">Chapters</h1>
+  </div>
+  <center>
+    <div class="chapterline">
 
-</body>
-</html>
+    </div>
+      <div class="chapter" ng-repeat="chapter in journal.chapter">
+        <h3>{{chapter.name}}</h3>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+    $('.chapter').on("hover", function(){
+      $(this).css('border','1px solid black')
+    })
+    </script>
+  </center>
+</div>

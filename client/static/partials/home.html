@@ -1,7 +1,31 @@
 <div ng-controller="userController">
 
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Make A Connection</h4>
+        </div>
+        <div class="modal-body">
+          <input ng-click="getAllUsers()" placeholder="Search..." type="text" ng-model="userFilter">
+          <div ng-repeat="user in allusers|filter:userFilter|limitTo:3">
+              <b>{{user.username}}</b> {{user.firstName}} {{user.lastName}} <button type="button" data-dismiss="modal" class="btn btn-default" ng-click="sendRequest(user._id)">Add</button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
     <a href="/logout">Logout</a> <a href="#/profile">profile</a>
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" ng-click="getAllUsers()" data-target="#myModal">Make A Connection</button>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Make A Connection</button>
 <nav class="navbar navbar-light navbar-fixed-top" style="background-color: #e3f2fd;" role="navigation">
   <link rel="stylesheet" href="../css/journalStyle.css">
   <!-- Brand and toggle get grouped for better mobile display -->
@@ -12,7 +36,7 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
       <li><a href="#/profile"><span class="glyphicon glyphicon-user"></span></a></li>
-      <li><a href="" data-toggle="modal" ng-click="getAllUsers()" data-target="#myModal"><span class="glyphicon glyphicon-search"></span></a></li>
+      <li><a href="" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-search"></span></a></li>
       <li class="dropdown">
           <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-exclamation-sign"></span><span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -49,7 +73,7 @@
           </div>
         </div>
           <div class='image-box' ng-if="emptyjournals>0" ng-repeat="i in getNumber(emptyjournals)">
-              <a href="" data-toggle="modal" ng-click="getAllUsers()" data-target="#myModal"><img class="friends-images" src="http://www.drodd.com/images15/question-mark22.gif" alt="" /></a>
+              <a href="" data-toggle="modal" data-target="#myModal"><img class="friends-images" src="http://www.drodd.com/images15/question-mark22.gif" alt="" /></a>
           </div>
         </div>
       </div>
@@ -72,38 +96,11 @@
 <br>
 <br>
 
-
+{{allusers}}
   <div ng-if="currentuser.requests.length>0">
     <b>Requests!</b>
     <div ng-repeat="request in currentuser.requests">
       <b>{{request.username}}</b> {{request.firstName}} {{request.lastName}} <button type="button" name="button" class="btn btn-default" ng-click="acceptRequest(request._id)" style="background-color:#31B0D5; color:white;">Accept</button><button type="button" name="button" ng-click="denyRequest(request._id)"class="btn btn-default" style="background-color:#fc8888; color:white;">Deny</button>
-    </div>
-  </div>
-
-  <div ng-if="currentuser.journals.length>0">
-    <b>Journals</b>
-
-  </div>
-  <div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Make A Connection</h4>
-        </div>
-        <div class="modal-body">
-          <input placeholder="Search..." type="text" ng-model="userFilter">
-          <div ng-repeat="user in allusers|filter:userFilter|limitTo:3">
-              <b>{{user.username}}</b> {{user.firstName}} {{user.lastName}} <button type="button" data-dismiss="modal" class="btn btn-default" ng-click="sendRequest(user._id)">Add</button>
-
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-
     </div>
   </div>
 

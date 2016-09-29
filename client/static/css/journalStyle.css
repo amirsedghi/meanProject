@@ -6,6 +6,8 @@
 #friends{
   padding-top:3%;
 }
+
+
 .friends-images{
 
   width: 100%;
@@ -49,4 +51,17 @@
   height: 1px;
   border:2px solid lightgrey;
   border-radius:5%;
+}
+/*
+Chapter.html*/
+
+.chapterline{
+  width:50%;
+  border:1px solid black;
+
+}
+.chapter{
+  width:40%;
+  border:1px solid gray;
+  margin-top:10px;
 }
