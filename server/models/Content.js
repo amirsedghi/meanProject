@@ -7,7 +7,7 @@ var ContentSchema = new mongoose.Schema({
   create_at: {type: Date, default: Date.now},
   title: {type: String},
   description: {type: String},
-  images: [{ data: Buffer, contentType: String }],
+  images: Schema.Types.Mixed,
 })
 
 mongoose.model('Content', ContentSchema)
