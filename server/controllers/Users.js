@@ -78,7 +78,6 @@ module.exports = {
     })
   },
 
-<<<<<<< HEAD
   update: function(req, res){
     console.log('it got here and here is the req.body.image');
     console.log(req.body.image);
@@ -89,7 +88,7 @@ module.exports = {
         res.sendStatus(200)
       }
     })
-=======
+  },
   sendRequest: function(req,res){
     User.findOne({_id:req.params.id}, function(err, user){
       if(err){
@@ -177,7 +176,6 @@ module.exports = {
           });
         }
       })
->>>>>>> c522bc81e1b1aa3c59e76c495adffc72f31003c9
   }
 
 }

@@ -59,7 +59,6 @@ app.factory('userFactory', ['$http','$location', function($http, $location) {
     }
   }
 
-<<<<<<< HEAD
   factory.updateUser = function(data, callback){
     console.log('HERE IS THE DATA OK...');
     console.log(data);
@@ -74,7 +73,6 @@ app.factory('userFactory', ['$http','$location', function($http, $location) {
     })
   }
 
-=======
   factory.acceptRequest= function(friend, callback){
     $http({
       method:'post',
@@ -98,7 +96,6 @@ app.factory('userFactory', ['$http','$location', function($http, $location) {
       console.log('couldnt deny');
     }
   }
->>>>>>> c522bc81e1b1aa3c59e76c495adffc72f31003c9
   return factory;
 
 }]);

@@ -13,14 +13,16 @@ app.controller('profileController', ['$scope','userFactory','$location','$routeP
     filepickerService.pick(
       {
         mimetype: 'image/*',
-        language: 'en',
-        services: ['COMPUTER','GOOGLE_DRIVE','FACEBOOK', 'INSTAGRAM'],
-        openTo: 'IMAGE_SERACH'
+        services: ['CONVERT','COMPUTER','GOOGLE_DRIVE','FACEBOOK', 'INSTAGRAM'],
+        conversions: ['crop', 'rotate', 'filter']
       },
       function(image){
-        console.log(JSON.strigify(image));
-        $scope.user.picture = image;
+        console.log('HERE IS THE URL');
+        console.log(image.url);
+        $scope.user.picture = image.url;
         $scope.$apply();
+        $scope.update();
+        console.log('hahahahaha');
       }
     );
 
@@ -36,7 +38,7 @@ app.controller('profileController', ['$scope','userFactory','$location','$routeP
   }
 
   $scope.update = function(){
-    userFactory.updateUser($scope.image, function(){
+    userFactory.updateUser($scope.user.picture, function(){
       $scope.getUser();
       $location.url('/home')
     })

@@ -11,14 +11,10 @@ module.exports = function(app){
   app.use(authentication);
   app.get('/getuser', user.getUser);
   app.get('/getallusers', user.getAllUsers);
-<<<<<<< HEAD
-  app.get('/getUser', user.getUser);
-  app.post('/updateUser', user.update)
-=======
+  app.post('/updateUser', user.update);
   app.get('/request/:id', user.sendRequest);
   app.post('/acceptrequest', user.acceptRequest);
   app.post('/denyrequest', user.denyRequest);
->>>>>>> c522bc81e1b1aa3c59e76c495adffc72f31003c9
 }
 
 
