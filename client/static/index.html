@@ -8,15 +8,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script src= "bower_components/angular/angular.js"></script>
+    <script src= "bower_components/filepicker-js/filepicker.js"></script>
     <script src= "bower_components/angular-route/angular-route.js"></script>
-    <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
+    <script src= "bower_components/angular-filepicker/dist/angular_filepicker.js"></script>
     <script src='/app.js'></script>
     <script src= 'factories/userFactory.js'></script>
     <script src= 'controllers/userController.js'></script>
+    <script src= 'controllers/profileController.js'></script>
 
 
   </head>
-  <input type="filepicker" data-fp-apikey = "An73odSkVTOjjvkC0Sctwz" onchange="alert(event.fpfile.url)">
+
   <body>
     <div ng-view>
 

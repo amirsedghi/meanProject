@@ -11,6 +11,7 @@ module.exports = function(app){
   app.use(authentication);
   app.get('/getuser', user.getUser);
   app.get('/getallusers', user.getAllUsers);
+  app.post('/updateUser', user.update);
   app.get('/request/:id', user.sendRequest);
   app.post('/acceptrequest', user.acceptRequest);
   app.post('/denyrequest', user.denyRequest);

@@ -1,4 +1,7 @@
 <div ng-controller="userController">
+
+    <a href="/logout">Logout</a> <a href="#/profile">profile</a>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" ng-click="getAllUsers()" data-target="#myModal">Make A Connection</button>
 <nav class="navbar navbar-light navbar-fixed-top" style="background-color: #e3f2fd;" role="navigation">
   <link rel="stylesheet" href="../css/journalStyle.css">
   <!-- Brand and toggle get grouped for better mobile display -->
@@ -131,8 +134,9 @@
 
     </div>
   </div>
-
-
+  <h3>Welcome {{currentuser.firstName}}</h3>
+  <div class="">
+    <img src="{{currentuser.picture}}" alt="" />
 
   </div>
 </div>

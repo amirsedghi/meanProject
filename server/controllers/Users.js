@@ -78,6 +78,17 @@ module.exports = {
     })
   },
 
+  update: function(req, res){
+    console.log('it got here and here is the req.body.image');
+    console.log(req.body.image);
+    User.update({_id:req.session.user._id}, {picture: req.body.image}, function(err){
+      if(err){
+        res.sendStatus(400)
+      } else {
+        res.sendStatus(200)
+      }
+    })
+  },
   sendRequest: function(req,res){
     User.findOne({_id:req.params.id}, function(err, user){
       if(err){
