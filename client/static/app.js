@@ -29,6 +29,9 @@ app.config(function($routeProvider, $httpProvider, filepickerProvider){
   .when('/journal/:id/newcontent',{
     templateUrl:'partials/createContent.html'
   })
+  .when('/journal/:id/chapters',{
+    templateUrl:'partials/chapter.html'
+  })
   .otherwise({
     redirectTo: '/dashboard'
   })
