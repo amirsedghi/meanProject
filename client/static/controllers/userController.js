@@ -37,7 +37,17 @@ app.controller('userController', ['$scope','userFactory','$location','$routePara
   $scope.getUser = function(){
     userFactory.getUser(function(user){
       $scope.currentuser = user;
+      $scope.emptyjournals = 4-$scope.currentuser.journals.length;
+      console.log($scope.emptyjournals)
     })
+  }
+
+  $scope.getNumber = function(num) {
+    var arr=[]
+    for(var i = 0; i<num;i++){
+      arr.push(i);
+    }
+    return arr;
   }
   $scope.getUser();
 
