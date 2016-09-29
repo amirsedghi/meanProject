@@ -1,4 +1,4 @@
-app.controller('userController', ['$scope','userFactory','$location','$routeParams', function($scope, userFactory, $location, $routeParams){
+app.controller('userController', ['$scope','userFactory','$location','$routeParams', function($scope, userFactory, $location, $routeParams, filepickerService){
   var redirector = function(){
     $location.url('/dashboard')
   }

@@ -1,4 +1,7 @@
 <div ng-controller="userController">
+
+    <a href="/logout">Logout</a> <a href="#/profile">profile</a>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" ng-click="getAllUsers()" data-target="#myModal">Make A Connection</button>
 <nav class="navbar navbar-light navbar-fixed-top" style="background-color: #e3f2fd;" role="navigation">
   <link rel="stylesheet" href="../css/journalStyle.css">
   <!-- Brand and toggle get grouped for better mobile display -->
@@ -22,23 +25,62 @@
 </nav>
 <link rel="stylesheet" href="../css/journalStyle.css">
   <div class="container">
-    <div class="content">
-      <h1>Welcome Jackie!</h1>
-      <img class="profile-image"src="http://hungarytoday.hu/wp-content/uploads/2016/04/jackie-chan-would-really-like-to-see-some-countries-have-a-disaster.jpg">
-      <h3>Here are your friends</h3>
-      Search: <input type="text"><br>
-      <div class='friends'>
-        <a href="journal.html"><img class="friends-image"src="http://3.bp.blogspot.com/-LA5PH_l_qnE/UuyPrr6O5aI/AAAAAAAAI6g/KCMlj7k2l-A/s1600/IpMan3.jpg"></a>
+    <div id="content">
+
+    <div id="left-stuff">
+      <p>stuff</p>
+    </div>
+    <div id="welcome">
+      <div id="welcome-header">
+        <p>welcome</p>
       </div>
-      <div class='friends'>
-        <img class="friends-image"src="http://cdn1.thr.com/sites/default/files/2013/02/bruce_lee_a_p.jpg">
+      <div id="friends">
+        <div class="image-box">
+          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
+          <p>Jackie</p>
+        </div>
+        <div class="image-box">
+          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
+          <p>Jackie</p>
+        </div>
+        <div class="image-box">
+          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
+          <p>Jackie</p>
+        </div>
+        <div class="image-box">
+          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
+          <p>Jackie</p>
+        </div>
+        <div class="image-box">
+          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
+          <p>Jackie</p>
+        </div>
+        <div class="image-box">
+          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
+          <p>Jackie</p>
+        </div>
+        <div class="image-box">
+          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
+          <p>Jackie</p>
+        </div>
+        <div class="image-box">
+          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
+          <p>Jackie</p>
+        </div>
+        <div class="image-box">
+          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
+          <p>Jackie</p>
+        </div>
+
+
       </div>
-      <div class='friends'>
-        <img class="friends-image"src="https://pbs.twimg.com/media/CXUi9HzWQAA0SMe.jpg">
-      </div>
-      <div class='friends'>
-        <img class="friends-image"src="https://s-media-cache-ak0.pinimg.com/originals/c1/7b/97/c17b97402969794d1d8ae5daa4ddf383.jpg">
-      </div>
+    </div>
+    <div id="right-stuff">
+    <p>stuff</p>
+    </div>
+  </div>
+
+
 
 
 
@@ -92,8 +134,9 @@
 
     </div>
   </div>
+  <h3>Welcome {{currentuser.firstName}}</h3>
+  <div class="">
+    <img src="{{currentuser.picture}}" alt="" />
 
-
-    </div>
   </div>
 </div>

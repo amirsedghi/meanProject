@@ -1,5 +1,5 @@
-var app = angular.module('myApp', ['ngRoute']);
-app.config(function($routeProvider, $httpProvider){
+var app = angular.module('myApp', ['ngRoute', 'angular-filepicker']);
+app.config(function($routeProvider, $httpProvider, filepickerProvider){
   $httpProvider.interceptors.push(
         function($q, $location) {
         return {
@@ -19,6 +19,10 @@ app.config(function($routeProvider, $httpProvider){
   .when('/home',{
     templateUrl:'partials/home.html',
   })
+  .when('/profile',{
+    templateUrl:'partials/profile.html',
+    controller: 'profileController'
+  })
   .when('/journal/:id',{
     templateUrl:'partials/journal.html'
   })
@@ -28,4 +32,8 @@ app.config(function($routeProvider, $httpProvider){
   .otherwise({
     redirectTo: '/dashboard'
   })
+
+  filepickerProvider.setKey('ASH0I2MdTJe3ibleZLmXgz');
+
+
 })
