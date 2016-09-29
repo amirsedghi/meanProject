@@ -14,6 +14,10 @@ module.exports = function(app){
   app.get('/request/:id', user.sendRequest);
   app.post('/acceptrequest', user.acceptRequest);
   app.post('/denyrequest', user.denyRequest);
+  app.post('/journal/:id/newChapter', journal.newChapter);
+  app.get('/getjournal/:id', journal.getJournal)
+  app.post('/journal/:id/newCategory', journal.newCategory);
+  app.post('/journal/:id/newcontent', journal.newContent);
 }
 
 

@@ -22,6 +22,9 @@ app.config(function($routeProvider, $httpProvider){
   .when('/journal/:id',{
     templateUrl:'partials/journal.html'
   })
+  .when('/journal/:id/newcontent',{
+    templateUrl:'partials/createContent.html'
+  })
   .otherwise({
     redirectTo: '/dashboard'
   })
