@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="../css/journalStyle.css">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
-    <a class="navbar-brand" href="#/home">yoUi</a>
+    <a class="navbar-brand" href="#/home">Ui</a>
   </div>
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -37,12 +37,12 @@
 </div>
       <div id="friends">
         <div class="image-box"ng-repeat="journal in currentuser.journals">
-          <div ng-if="journal._friend1._id==currentuser._id">
+          <div ng-if="journal._friend1._id!=currentuser._id">
             <div class="image-box">
               <a href="#/journal/{{journal._id}}"><img class="friends-images" src="{{currentuser.picture}}" alt="" /></a>
             </div>
           </div>
-          <div ng-if="journal._friend2._id==currentuser._id">
+          <div ng-if="journal._friend2._id!=currentuser._id">
             <div class="image-box">
               <a href="#/journal/{{journal._id}}"><img class="friends-images" src="{{currentuser.picture}}" alt="" /></a>
             </div>
