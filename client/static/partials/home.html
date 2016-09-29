@@ -26,57 +26,36 @@
 <link rel="stylesheet" href="../css/journalStyle.css">
   <div class="container">
     <div id="content">
-
-    <div id="left-stuff">
-      <p>stuff</p>
-    </div>
-    <div id="welcome">
-      <div id="welcome-header">
-        <p>welcome</p>
+      <div class="welcome">
+        <h1 class="welcometext">Welcome {{currentuser.firstName}}</h1>
+        <center>
+          <a href="#/profile"><img class="mainphoto" src="{{currentuser.picture}}" alt="" /></a>
+        </center>
       </div>
+<div class="line">
+
+</div>
       <div id="friends">
-        <div class="image-box">
-          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
-          <p>Jackie</p>
+        <div class="image-box"ng-repeat="journal in currentuser.journals">
+          <div ng-if="journal._friend1._id==currentuser._id">
+            <div class="image-box">
+              <a href="#/journal/{{journal._id}}"><img class="friends-images" src="{{currentuser.picture}}" alt="" /></a>
+            </div>
+          </div>
+          <div ng-if="journal._friend2._id==currentuser._id">
+            <div class="image-box">
+              <a href="#/journal/{{journal._id}}"><img class="friends-images" src="{{currentuser.picture}}" alt="" /></a>
+            </div>
+          </div>
         </div>
-        <div class="image-box">
-          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
-          <p>Jackie</p>
+          <div class='image-box' ng-if="emptyjournals>0" ng-repeat="i in getNumber(emptyjournals)">
+              <a href="" data-toggle="modal" ng-click="getAllUsers()" data-target="#myModal"><img class="friends-images" src="http://www.drodd.com/images15/question-mark22.gif" alt="" /></a>
+          </div>
         </div>
-        <div class="image-box">
-          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
-          <p>Jackie</p>
-        </div>
-        <div class="image-box">
-          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
-          <p>Jackie</p>
-        </div>
-        <div class="image-box">
-          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
-          <p>Jackie</p>
-        </div>
-        <div class="image-box">
-          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
-          <p>Jackie</p>
-        </div>
-        <div class="image-box">
-          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
-          <p>Jackie</p>
-        </div>
-        <div class="image-box">
-          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
-          <p>Jackie</p>
-        </div>
-        <div class="image-box">
-          <img class='friends-images' src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_UY317_CR7,0,214,317_AL_.jpg" alt="">
-          <p>Jackie</p>
-        </div>
-
-
       </div>
     </div>
     <div id="right-stuff">
-    <p>stuff</p>
+
     </div>
   </div>
 
@@ -103,14 +82,7 @@
 
   <div ng-if="currentuser.journals.length>0">
     <b>Journals</b>
-    <div ng-repeat="journal in currentuser.journals">
-      <div ng-if="journal._friend1._id==currentuser._id">
-        <a href="#/journal/{{journal._id}}"><b>{{currentuser.username}}'s</b> and <b>{{journal._friend2.username}}'s</b> Journal</a>
-      </div>
-      <div ng-if="journal._friend2._id==currentuser._id">
-        <a href="#/journal/{{journal._id}}"><b>{{currentuser.username}}'s</b> and <b>{{journal._friend1.username}}'s</b> Journal</a>
-      </div>
-    </div>
+
   </div>
   <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -134,9 +106,5 @@
 
     </div>
   </div>
-  <h3>Welcome {{currentuser.firstName}}</h3>
-  <div class="">
-    <img src="{{currentuser.picture}}" alt="" />
 
-  </div>
 </div>

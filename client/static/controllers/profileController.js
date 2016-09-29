@@ -12,6 +12,7 @@ app.controller('profileController', ['$scope','userFactory','$location','$routeP
     console.log('IT GETS HERE');
     filepickerService.pick(
       {
+        cropRatio:1,
         mimetype: 'image/*',
         services: ['CONVERT','COMPUTER','GOOGLE_DRIVE','FACEBOOK', 'INSTAGRAM'],
         conversions: ['crop', 'rotate', 'filter']
