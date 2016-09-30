@@ -16,6 +16,12 @@
 
 }
 
+#peopleImage{
+  width: 6%;
+  border-radius: 50%;
+  margin-top: 1%;
+}
+
 .welcome{
   width: 50%;
   background: rgba(255, 255, 255, 0.5);
