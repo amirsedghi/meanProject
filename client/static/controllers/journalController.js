@@ -1,47 +1,118 @@
 app.controller('journalController', ['$scope','userFactory','$location','$routeParams','journalFactory', 'filepickerService', function($scope, userFactory, $location, $routeParams, journalFactory, filepickerService){
 
+  $scope.chapterfilter =''
+
   $scope.getjournalanduser = function(){
     journalFactory.getJournal($routeParams.id,function(data){
       $scope.journal = data
     })
+    if($routeParams.chapter){
+      $scope.chapterfilter = $routeParams.chapter
+    }
     userFactory.getUser(function(data){
       $scope.user = data;
     })
   }
 
-
   $scope.newContent = function(content){
     if(content.newchapter){
       journalFactory.newChapter(content.newchapter, $scope.journal._id, function(res){
         console.log('success')
+        console.log(res)
         $scope.chapter = res;
+        if(content.newCategory){
+          journalFactory.newCategory(content.newCategory, $scope.journal._id, function(res){
+            console.log('success')
+            $scope.category = res;
+            console.log($scope.chapter)
+            var newcontent = {
+              chapter:$scope.chapter,
+              category:$scope.category,
+              title:content.title,
+              description:content.desc,
+              images:[]
+            }
+            console.log(newcontent)
+            console.log(newcontent.chapter)
+            for (var i in $scope.allImages){
+              newcontent.images.push($scope.allImages[i])
+            }
+
+            journalFactory.newContent(newcontent,$scope.journal._id,function(){
+              $location.url('/journal/'+$routeParams.id)
+            })
+          })
+        }else{
+          $scope.category = content.existingCategory;
+          console.log($scope.chapter)
+          var newcontent = {
+            chapter:$scope.chapter,
+            category:$scope.category,
+            title:content.title,
+            description:content.desc,
+            images:[]
+          }
+          console.log(newcontent)
+          console.log(newcontent.chapter)
+          for (var i in $scope.allImages){
+            newcontent.images.push($scope.allImages[i])
+          }
+
+          journalFactory.newContent(newcontent,$scope.journal._id,function(){
+            $location.url('/journal/'+$routeParams.id)
+          })
+        }
       })
-    }else{
-      $scope.chapter = content.existingChapter
-    }
-    if(content.newCategory){
-      journalFactory.newCategory(content.newCategory, $scope.journal._id, function(res){
-        console.log('success')
-        $scope.category = res;
-      })
-    }else{
-      $scope.chapter = content.existingCategory
-    }
-    var newcontent = {
-      chapter:$scope.chapter,
-      category:$scope.category,
-      title:content.title,
-      description:content.desc,
-      images:[]
     }
 
-    for (var i in $scope.allImages){
-      newcontent.images.push($scope.allImages[i])
+
+    else{
+      $scope.chapter = content.existingChapter;
+      if(content.newCategory){
+        journalFactory.newCategory(content.newCategory, $scope.journal._id, function(res){
+          console.log('success')
+          $scope.category = res;
+          console.log($scope.chapter)
+          var newcontent = {
+            chapter:$scope.chapter,
+            category:$scope.category,
+            title:content.title,
+            description:content.desc,
+            images:[]
+          }
+          console.log(newcontent)
+          console.log(newcontent.chapter)
+          for (var i in $scope.allImages){
+            newcontent.images.push($scope.allImages[i])
+          }
+
+          journalFactory.newContent(newcontent,$scope.journal._id,function(){
+            $location.url('/journal/'+$routeParams.id)
+          })
+        })
+      }else{
+        $scope.category = content.existingCategory
+        console.log($scope.chapter)
+        var newcontent = {
+          chapter:$scope.chapter,
+          category:$scope.category,
+          title:content.title,
+          description:content.desc,
+          images:[]
+        }
+        console.log(newcontent)
+        console.log(newcontent.chapter)
+        for (var i in $scope.allImages){
+          newcontent.images.push($scope.allImages[i])
+        }
+
+        journalFactory.newContent(newcontent,$scope.journal._id,function(){
+          $location.url('/journal/'+$routeParams.id)
+        })
+      }
     }
 
-    journalFactory.newContent(newcontent,$scope.journal._id,function(){
-      $location.url('/journal/'+$routeParams.id)
-    })
+
   }
 
   $scope.allImages = []

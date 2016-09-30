@@ -7,6 +7,7 @@ app.factory('journalFactory', ['$http','$location', function($http, $location) {
       url:'/journal/'+journalid+'/newChapter',
       data:{chapter:chapter}
     }).then(function(res){
+      console.log(res)
       callback(res.data)
     }), function(){
       console.log('Something wrong')
