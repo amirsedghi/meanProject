@@ -82,7 +82,7 @@ app.controller('userController', ['$scope','userFactory','$location','$routePara
       }
 
   }
-
+}
   $scope.acceptRequest = function(friend){
     userFactory.acceptRequest(friend, function(journal){
       $location.url('/journal/'+journal)

@@ -20,6 +20,13 @@
               <li><a href="/logout"><span class="glyphicon glyphicon-remove-sign"></span> Log Out</a></li>
             </ul>
         </li>
+        <li class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-book"></span><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#/journal/{{journal._id}}/chapters">Chapters</a></li>
+              <li><a href="#/journal/{{journal._id}}/categories">Categories</a></li>
+            </ul>
+        </li>
         <li><a href="#/journal/{{journal._id}}/newcontent"><span class="glyphicon glyphicon-plus"></span></a></li>
         <li class="dropdown">
             <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-exclamation-sign"></span><span class="caret"></span></a>
@@ -40,6 +47,9 @@
         <br>
         <div class="ground">
           <div class="main">
+            <div ng-if="journal.content.length< 1">
+              <center><a href="#/journal/{{journal._id}}/newcontent">You have no posts! Click me to add some content!</a></center>
+            </div>
             <div ng-repeat="content in journal.content|filter:chapterfilter|orderBy:'-create_at'">
               <div class="head">
                   <h3> <img src="{{content._user.picture}}" alt="" /><span class='name'>{{content._user.firstName}}</span> <span class="title">{{content.title}}</span> <span class="name">{{content.create_at | date: MM/dd/yyyy}}</span></h3>
