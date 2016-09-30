@@ -1,10 +1,15 @@
+
 app.controller('userController', ['$scope','userFactory','$location','$routeParams', function($scope, userFactory, $location, $routeParams, filepickerService){
   var redirector = function(){
     $location.url('/dashboard')
   }
 
   $scope.check = 'good'
-
+  var findOne = function (haystack, arr) {
+    return arr.some(function (v) {
+        return haystack.indexOf(v) >= 0;
+    });
+};
   $scope.register = function(user){
     $scope.response = ''
     userFactory.register(user, function(){
@@ -38,6 +43,7 @@ app.controller('userController', ['$scope','userFactory','$location','$routePara
     userFactory.getUser(function(user){
       $scope.currentuser = user;
       $scope.emptyjournals = 4-$scope.currentuser.journals.length;
+      $scope.filter = $scope.currentuser.journals
       console.log($scope.emptyjournals)
     })
   }
@@ -52,7 +58,14 @@ app.controller('userController', ['$scope','userFactory','$location','$routePara
   $scope.getUser();
 
   $scope.sendRequest = function(friend){
-    userFactory.sendRequest(friend);
+    if($scope.currentuser.journals.length >= 4){
+      alert('You have already reached the maxiumum number of journals.')
+    }else if(findOne($scope.currentuser.journals[0]._id, friend.journals)){
+      alert('You have already added this user.')
+    }else{
+    userFactory.sendRequest(friend._id);
+    }
+
   }
 
   $scope.acceptRequest = function(friend){
