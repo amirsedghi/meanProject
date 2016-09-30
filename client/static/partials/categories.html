@@ -1,52 +1,59 @@
 
-<div ng-controller="journalController" ng-init="getjournalanduser()">
+<div class="categorybackground" ng-controller="journalController" ng-init="getjournalanduser()">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/createChapterStyle.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Amatica+SC" rel="stylesheet">
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
 <div class = "head">
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <link rel="stylesheet" href="../css/journalStyle.css">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#/home">UI</a>
-  </div>
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-      <li><a href="#/profile"><span class="glyphicon glyphicon-user"></span></a></li>
-      <li><a href="#/createChapter"><span class="glyphicon glyphicon-plus"></span></a></li>
-      <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-exclamation-sign"></span><span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Put request here</a></li>
-          </ul>
-      <li><a href="#/logout"><span class="glyphicon glyphicon-remove-sign"></span></a></li>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#/home">U&I</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#/profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+              <li><a href="/logout"><span class="glyphicon glyphicon-remove-sign"></span> Log Out</a></li>
+            </ul>
         </li>
-    </ul>
-  </div><!-- /.navbar-collapse -->
-</nav>
+        <li class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-exclamation-sign"></span><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <div ng-if="currentuser.requests.length>0">
+                <div ng-repeat="request in currentuser.requests">
+                  <li><b>{{request.username}}</b>  <button type="button" name="button" class="btn btn-default" ng-click="acceptRequest(request._id)" style="background-color:#31B0D5; color:white;"><span class="glyphicon glyphicon-ok"></span></button><button type="button" name="button" ng-click="denyRequest(request._id)"class="btn btn-default" style="background-color:#fc8888; color:white;"><span class="glyphicon glyphicon-remove"></button>
+                </div>
+              </div>
+            </ul>
+        </li>
+        <li>
+          <a href="#/journal/{{journal._id}}"><span class="glyphicon glyphicon-circle-arrow-left"></span></a>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </nav>
 </div>
 <br><br><br>
-<a href="#/journal/{{journal._id}}">Back to journal</a> < --Put this in the navbar and get that working
-  <div class="content">
-    <h1 style="text-align:center">Categories</h1>
-  </div>
   <center>
-    <div class="chapterline">
-
+    <div class="selectChapter">
+      <h2 id="contentTitle">Categories</h2>
+      <div class="chapter" >
+        <form class="" action="index.html" method="post">
+          <select ng-model="filterchapter">
+            <option ng-repeat="category in journal.category" value="{{category._id}}">{{category.name}}</option>
+          </select>
+          <a href="#/journal/{{journal._id}}/{{filterchapter}}"><button type="button" name="button">Filter</button></a>
+        </form>
+      </div>
     </div>
-      <div class="chapter" ng-repeat="category in journal.category">
-        <h3><a href="#/journal/{{journal._id}}/{{category._id}}">{{category.name}}</a></h3>
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script type="text/javascript">
-    $('.chapter').on("hover", function(){
-      $(this).css('border','1px solid black')
-    })
-    </script>
   </center>
 </div>
