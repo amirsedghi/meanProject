@@ -5,17 +5,18 @@ h2{
   color:white;
 }
 
-.container{
-  font-family: "Amatica SC" , cursive;
-  background: url(../images/writing.jpg) no-repeat center center fixed;
+.createContent{
+  background: url(../images/writing.jpeg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height:1100px;
+  height: 1100px;
 }
 
+
 .enterContent{
+    font-family: "Amatica SC" , cursive;
   padding-top: 5px;
   margin-top: 60px;
   border-radius: 10px;
@@ -28,14 +29,6 @@ h2{
   padding-bottom: 30px;
 }
 
-.createContent{
-  background: url(../images/writing.jpeg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 1100px;
-}
 
 input{
   margin-left: 165px;
