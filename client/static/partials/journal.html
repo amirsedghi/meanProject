@@ -8,21 +8,29 @@
     <link rel="stylesheet" href="../css/journalStyle.css">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="/#home">UI</a>
+      <a class="navbar-brand" href="#/home">Ui</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#/profile"><span class="glyphicon glyphicon-user"></span></a></li>
         <li class="dropdown">
-            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-book"></span><span class="caret"></span></a>
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#/journal/{{journal._id}}/chapters">Chapters</a></li>
-              <li><a href="#/journal/{{journal._id}}/categories">Categories</a></li>
+              <li><a href="#/profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+              <li><a href="/logout"><span class="glyphicon glyphicon-remove-sign"></span> Log Out</a></li>
             </ul>
         </li>
         <li><a href="#/journal/{{journal._id}}/newcontent"><span class="glyphicon glyphicon-plus"></span></a></li>
-        <li><a href="/logout"><span class="glyphicon glyphicon-remove-sign"></span></a></li>
+        <li class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-exclamation-sign"></span><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <div ng-if="currentuser.requests.length>0">
+                <div ng-repeat="request in currentuser.requests">
+                  <li><b>{{request.username}}</b>  <button type="button" name="button" class="btn btn-default" ng-click="acceptRequest(request._id)" style="background-color:#31B0D5; color:white;"><span class="glyphicon glyphicon-ok"></span></button><button type="button" name="button" ng-click="denyRequest(request._id)"class="btn btn-default" style="background-color:#fc8888; color:white;"><span class="glyphicon glyphicon-remove"></button>
+                </div>
+              </div>
+            </ul>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </nav>
