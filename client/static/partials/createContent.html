@@ -4,6 +4,8 @@
   <link rel="stylesheet" href="../css/createChapterStyle.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Amatica+SC" rel="stylesheet">
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
   <div class="createContent" >
     <div class="headerDiv">
@@ -35,62 +37,58 @@
   </nav>
   </div>
   <br>
+  <div class="container">
   <div class="enterContent">
+    <h2 id="contentTitle">Add something to your Journal</h2>
     <form class="form-horizontal">
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="usr">Add some pictures: </label>
-        <div class="col-sm-10">
-          <input type="filepicker" data-fp-apikey = "An73odSkVTOjjvkC0Sctwz" onchange="alert(event.fpfile.url)">
+      <div class="form-group" id="uploadButton">
+        <div class="col-sm-5">
+          <button type="button" class='btn btn-default form-control' ng-click="uploadMany()">Upload Images</button>
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-sm-2" for="usr">Choose a chapter: </label>
-        <div class="control-label col-sm-2">
+        <div class="control-label col-sm-4">
           <select class="form-control" ng-model="content.existingChapter" >
-            <option value=""></option>
+            <option value="" disabled selected>Pick a chapter</option>
             <option ng-repeat="chapter in journal.chapter" value="{{chapter._id}}">{{chapter.name}}</option>
           </select>
         </div>
       </div>
         <div class="form-group">
-          <label class="control-label col-sm-2" for="usr">Or make a new one!:</label>
-          <div class="col-sm-2">
-            <input type="text" class="form-control" id="usr" ng-model="content.newchapter">
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="usr" ng-model="content.newchapter" placeholder="Make a new chapter">
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-2" for="usr">Choose a category: </label>
-          <div class="control-label col-sm-2">
+          <div class="control-label col-sm-4">
             <select class="form-control" ng-model="content.existingCategory" name="category" >
+              <option value="" disabled selected>Pick a category</option>
               <option ng-repeat="category in journal.category" value="{{category._id}}">{{category.name}}</option>
             </select>
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-2" for="usr">Or make a new one!:</label>
-          <div class="col-sm-2">
-            <input type="text" class="form-control" id="usr" ng-model="content.newCategory">
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="usr" ng-model="content.newCategory" placeholder="Make a new category">
           </div>
         </div>
       <div class="form-group">
-        <label class="control-label col-sm-2" for="usr">Title:</label>
-        <div class="col-sm-2">
-          <input type="text" class="form-control" id="usr" name="title" ng-model="content.title">
-        </div>
-      </div>
-      <div class="form-group">
-        <button type="button" class='btn btn-default' ng-click="uploadMany()">Upload Images</button>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="usr">Describe it! </label>
         <div class="col-sm-4">
-          <textarea class="form-control" name="description" rows="8" cols="40" ng-model="content.desc"></textarea>
+          <input type="text" class="form-control" id="usr" name="title" ng-model="content.title" placeholder="Title">
         </div>
       </div>
-      <div class="col-sm-offset-2 col-sm-10">
+      <div class="form-group">
+        <div class="col-sm-6">
+          <textarea class="form-control" name="description" rows="6" cols="40" ng-model="content.desc" placeholder="Describe the content you're adding"></textarea>
+        </div>
+      </div>
+      <div  class="form-group" id="add_button">
+      <div class=" col-sm-10">
         <button ng-click="newContent(content)" class = "btn btn-primary">Add content</button>
       </div>
+    </div>
     </form>
+</div>
 </div>
 </div>
 </div>
