@@ -1,16 +1,9 @@
-*{
 
-
-}
 
 h2{
   font-weight: 700;
 }
 
-.container{
-  font-family: "Amatica SC" , cursive;
-  font-weight: 600;
-}
 
 .enterContent{
   padding-top: 5px;
@@ -25,6 +18,14 @@ h2{
   padding-bottom: 30px;
 }
 
+.createContent{
+  background: url(../images/writing.jpeg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 1100px;
+}
 
 input{
   margin-left: 165px;
@@ -39,6 +40,7 @@ textarea{
 }
 
 #uploadButton{
+  font-weight: 700;
   margin-left: 165px;
 }
 
