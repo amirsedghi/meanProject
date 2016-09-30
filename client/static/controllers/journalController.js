@@ -1,5 +1,7 @@
 app.controller('journalController', ['$scope','userFactory','$location','$routeParams','journalFactory', 'filepickerService', function($scope, userFactory, $location, $routeParams, journalFactory, filepickerService){
 
+console.log('do you even get here??');
+
   $scope.chapterfilter =''
 
   $scope.getjournalanduser = function(){
@@ -14,6 +16,14 @@ app.controller('journalController', ['$scope','userFactory','$location','$routeP
     })
   }
 
+  $scope.getUser = function(){
+    userFactory.getUser(function(data){
+      $scope.user = data;
+    })
+  }
+
+  $scope.getUser()
+
   $scope.newContent = function(content){
     if(content.newchapter){
       journalFactory.newChapter(content.newchapter, $scope.journal._id, function(res){
@@ -26,6 +36,7 @@ app.controller('journalController', ['$scope','userFactory','$location','$routeP
             $scope.category = res;
             console.log($scope.chapter)
             var newcontent = {
+              _user: $scope.user._id,
               chapter:$scope.chapter,
               category:$scope.category,
               title:content.title,
@@ -46,6 +57,7 @@ app.controller('journalController', ['$scope','userFactory','$location','$routeP
           $scope.category = content.existingCategory;
           console.log($scope.chapter)
           var newcontent = {
+            _user: $scope.user._id,
             chapter:$scope.chapter,
             category:$scope.category,
             title:content.title,
@@ -74,6 +86,7 @@ app.controller('journalController', ['$scope','userFactory','$location','$routeP
           $scope.category = res;
           console.log($scope.chapter)
           var newcontent = {
+            _user: $scope.user._id,
             chapter:$scope.chapter,
             category:$scope.category,
             title:content.title,
@@ -94,6 +107,7 @@ app.controller('journalController', ['$scope','userFactory','$location','$routeP
         $scope.category = content.existingCategory
         console.log($scope.chapter)
         var newcontent = {
+          _user: $scope.user._id,
           chapter:$scope.chapter,
           category:$scope.category,
           title:content.title,

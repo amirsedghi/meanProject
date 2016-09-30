@@ -32,13 +32,14 @@
 .logreg{
   padding-top: 5px;
   margin-top: 60px;
-  border-radius: 10px;
+  border-radius: 10%;
   text-align: center;
   width: 300px;
   margin-left: auto;
   margin-right: auto;
   background: rgba(0, 0, 0, 0.5);
   padding-bottom: 30px;
+  font-size: 30px;
 }
 
 .login{
