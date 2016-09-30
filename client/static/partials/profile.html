@@ -29,15 +29,15 @@
   </div><!-- /.navbar-collapse -->
 </nav>
 
-<br>
-<br>
-<br>
 <div class="container">
   <link rel="stylesheet" href="../css/profile.css">
   <div class="enterContent">
     <h1>Hi {{user.firstName}}</h1>
-    <p>Please upload a profile photo</p>
-    <button type="button" class = 'btn btn-default' ng-click = "uploadImage()">upload</button>
-
+    <p>Upload a profile photo!</p>
+    <button type="button" class = 'btn btn-default' id='uploadB' ng-click = "uploadImage()">upload</button>
+    <div class="">
+      <img id='image' src="{{user.picture}}" alt="" />
+    </div>
   </div>
+
 </div>

@@ -9,6 +9,7 @@
   margin-right: auto;
   background: rgba(255, 255, 255, 0.5);
   padding-bottom: 30px;
+  margin-top: 10%;
 }
 
 .container{
@@ -21,5 +22,19 @@
   background-size: cover;
   height:1220px;
   background-size: 1920px 100%;
+  font-size: 40px;
 
+}
+
+#uploadB{
+  font-size: 25px;
+  width: 100px;
+  font-weight: 40%;
+}
+
+#image{
+  margin-top: 20%;
+  width: 40%;
+  border-radius: 50%;
+  border: 2px solid silver;
 }

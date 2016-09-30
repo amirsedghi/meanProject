@@ -40,6 +40,12 @@
   background-size: 1920px 1080px;
 }
 
+.addPost{
+  font-family: "Amatica SC" , cursive;
+  font-size: 40px;
+  margin-top: 20%;
+}
+
 .title{
   font-family: 'Comfortaa', cursive;
 }
