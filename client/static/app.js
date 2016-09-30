@@ -38,6 +38,10 @@ app.config(function($routeProvider, $httpProvider, filepickerProvider){
   .when('/journal/:id/:chapter',{
     templateUrl:'partials/journal.html'
   })
+  .when('/photoAlbum/:id',{
+    templateUrl:'partials/photoAlbum.html',
+    controller: 'albumController'
+  })
   .otherwise({
     redirectTo: '/dashboard'
   })

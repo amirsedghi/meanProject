@@ -61,29 +61,45 @@
   <div id='ground'>
     <div id="content">
       <div class="welcome">
-        <div class="">
-
-        </div>
         <div class="nome" ng-if = 'currentuser.picture.length == 0'>
           <a href="#profile">Add a photo...</a>
         </div>
-        <div class='me' ng-if = 'currentuser.picture.length>0'>
-          <a href="#/profile"><img class="mainphoto" src="{{currentuser.picture}}" alt="" /></a>
-          <p>
-            {{currentuser.firstName}}
-          </p>
+        <div class='topme' ng-if = 'currentuser.picture.length>0'>
+          <div class="me">
+            <a href="#/profile"><img class="mainphoto" src="{{currentuser.picture}}" alt="" /></a>
+          </div>
+          <div class="welcomeMe">
+            <h1>Welcome to your personal journal {{currentuser.firstName}}!</h1>
+          </div>
         </div>
       </div>
       <div id="friends">
+        <div class='awesome' ng-if= 'currentuser.journals.length>0'>
+          <h1>Here are your awesome friends...</h1>
+        </div>
+        <div class="awesome" ng-if = 'currentuser.journals.length<1'>
+          <h1>What are you waiting for?! Add an awesome friend!</h1>
+        </div>
         <div class="image-box"ng-repeat="journal in currentuser.journals">
           <div ng-if="journal._friend1._id!=currentuser._id">
-            <div class="image-box">
-              <a href="#/journal/{{journal._id}}"><img class="friends-images" src="{{journal._friend1.picture}}" alt="" /></a>
+            <div class="fimage-box">
+              <div class="fImage">
+                <a href="#/journal/{{journal._id}}"><img class="friends-images" src="{{journal._friend1.picture}}" alt="" />  </a>
+              </div>
+              <div class="fName">
+                <a href="#/journal/{{journal._id}}">{{journal._friend1.firstName}} {{journal._friend1.firstName}}</a>
+              </div>
+
             </div>
           </div>
           <div ng-if="journal._friend2._id!=currentuser._id">
-            <div class="image-box">
-              <a href="#/journal/{{journal._id}}"><img class="friends-images" src="{{journal._friend2.picture}}" alt="" /></a>
+            <div class="fimage-box">
+              <div class="fImage">
+                <a href="#/journal/{{journal._id}}"><img class="friends-images" src="{{journal._friend2.picture}}" alt="" />  </a>
+              </div>
+              <div class="fName">
+                <a href="#/journal/{{journal._id}}">{{journal._friend2.firstName}} {{journal._friend2.firstName}}</a>
+              </div>
             </div>
           </div>
         </div>
