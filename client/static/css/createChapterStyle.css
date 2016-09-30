@@ -1,6 +1,6 @@
 *{
-  font-family: "Amatica SC" , cursive;
-  font-weight: 600;
+
+
 }
 
 h2{
@@ -8,7 +8,8 @@ h2{
 }
 
 .container{
-
+  font-family: "Amatica SC" , cursive;
+  font-weight: 600;
 }
 
 .enterContent{
