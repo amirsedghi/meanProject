@@ -15,7 +15,7 @@ h2{
 }
 
 .chapterbackground{
-  background: url(https://images.unsplash.com/uploads/1413259835094dcdeb9d3/6e609595?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=998&q=80&cs=tinysrgb) no-repeat center center fixed;
+  background: url(../images/car.gif) center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -23,7 +23,7 @@ h2{
   height: 1100px;
 }
 .categorybackground{
-  background: url(https://images.unsplash.com/photo-1467474672559-8800efd88ce3?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=1042&q=80&cs=tinysrgb) no-repeat center center fixed;
+  background: url(../images/car.gif) center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -32,7 +32,7 @@ h2{
 }
 
 .enterContent{
-    font-family: "Amatica SC" , cursive;
+  font-family: "Amatica SC" , cursive;
   padding-top: 5px;
   margin-top: 60px;
   border-radius: 10px;
@@ -43,10 +43,11 @@ h2{
   margin-right: auto;
   background: rgba(0, 0, 0, 0.5);
   padding-bottom: 30px;
+  font-size: 40px;
 }
 
 .selectChapter{
-  font-family: "Amatica SC" , cursive;
+font-family: "Amatica SC" , cursive;
 padding-top: 5px;
 margin-top: 60px;
 border-radius: 10px;
@@ -63,15 +64,27 @@ padding-bottom: 30px;
   margin-left:0px;
 }
 .chapter{
-  font-family: sans-serif;
+  font-family: "Amatica SC" , cursive;
 }
 .chapter button{
-  font-family: sans-serif;
+  font-family: "Amatica SC" , cursive;
   font-weight: 600;
+  background: white;
+  border-radius: 10%;
+  font-size: 20px;
 }
 
 input{
   margin-left: 165px;
+}
+
+.form div{
+  display: block;
+  margin-top: 5%;
+}
+
+.form div select{
+  width: 40%;
 }
 
 select{

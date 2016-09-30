@@ -15,9 +15,16 @@
         </div>
         <div class="modal-body">
           <input ng-click="getAllUsers()" placeholder="Search..." type="text" ng-model="userFilter">
-          <div ng-repeat="user in allusers|filter:userFilter|limitTo:3">
-              <img id='peopleImage' src="{{user.picture}}" alt="" /> <b>{{user.username}}</b> {{user.firstName}} {{user.lastName}} <button type="button" data-dismiss="modal" class="btn btn-default" ng-click="sendRequest(user)"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-          </div>
+          <table>
+            <tr ng-repeat="user in allusers|filter:userFilter|limitTo:3">
+              <td>
+                <img id='peopleImage' src="{{user.picture}}" alt="" /> <b>{{user.username}}</b> {{user.firstName}} {{user.lastName}}
+              </td>
+              <td>
+                <button type="button" data-dismiss="modal" class="btn btn-default" ng-click="sendRequest(user)"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+              </td>
+            </tr>
+          </table>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

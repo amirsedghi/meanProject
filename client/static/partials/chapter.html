@@ -47,11 +47,15 @@
     <div class="selectChapter">
       <h2 id="contentTitle">Chapters</h2>
       <div class="chapter" >
-        <form class="" action="index.html" method="post">
-          <select ng-model="filterchapter">
-            <option ng-repeat="chapter in journal.chapter" value="{{chapter._id}}">{{chapter.name}}</option>
-          </select>
-          <a href="#/journal/{{journal._id}}/{{filterchapter}}"><button type="button" name="button">Filter</button></a>
+        <form class="form" action="index.html" method="post">
+          <div class="">
+            <select ng-model="filterchapter">
+              <option ng-repeat="chapter in journal.chapter" value="{{chapter._id}}">{{chapter.name}}</option>
+            </select>
+          </div>
+          <div class="">
+              <a href="#/journal/{{journal._id}}/{{filterchapter}}"><button type="button" name="button">Filter</button></a>
+          </div>
         </form>
       </div>
     </div>
