@@ -11,7 +11,7 @@
         <div class="modal-body">
           <input ng-click="getAllUsers()" placeholder="Search..." type="text" ng-model="userFilter">
           <div ng-repeat="user in allusers|filter:userFilter|limitTo:3">
-              <b>{{user.username}}</b> {{user.firstName}} {{user.lastName}} <button type="button" data-dismiss="modal" class="btn btn-default" ng-click="sendRequest(user._id)">Add</button>
+              <b>{{user.username}}</b> {{user.firstName}} {{user.lastName}} <button type="button" data-dismiss="modal" class="btn btn-default" ng-click="sendRequest(user)">Add</button>
           </div>
         </div>
         <div class="modal-footer">
@@ -49,7 +49,7 @@
           <ul class="dropdown-menu">
             <div ng-if="currentuser.requests.length>0">
               <div ng-repeat="request in currentuser.requests">
-                <li><b>{{request.username}}</b>  <button type="button" name="button" class="btn btn-default" ng-click="acceptRequest(request._id)" style="background-color:#31B0D5; color:white;">Accept</button><button type="button" name="button" ng-click="denyRequest(request._id)"class="btn btn-default" style="background-color:#fc8888; color:white;">Deny</button>
+                <li><b>{{request.username}}</b>  <button type="button" name="button" class="btn btn-default" ng-click="acceptRequest(request._id)" style="background-color:#31B0D5; color:white;"><span class="glyphicon glyphicon-ok"></span></button><button type="button" name="button" ng-click="denyRequest(request._id)"class="btn btn-default" style="background-color:#fc8888; color:white;"><span class="glyphicon glyphicon-remove"></button>
               </div>
             </div>
           </ul>
