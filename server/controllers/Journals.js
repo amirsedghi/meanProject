@@ -45,7 +45,7 @@ module.exports = {
   },
 
   getJournal: function(req,res){
-    Journal.findOne({_id:req.params.id}).populate({path:'content', model:'Content'}).exec(function(err, journal){
+    Journal.findOne({_id:req.params.id}).populate({path:'content', populate:{path:'_user', model:'User'}}).exec(function(err, journal){
       if(err){
         console.log('couldnt find journal');
       }else{
@@ -74,6 +74,16 @@ module.exports = {
             })
           }
         })
+      }
+    })
+  },
+
+  getContent: function(req, res){
+    Content.findOne({_id: req.params.id}, function(err, content){
+      if(err){
+        console.log('could not get the content');
+      } else{
+        res.json(content.images)
       }
     })
   }

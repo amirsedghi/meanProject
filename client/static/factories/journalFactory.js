@@ -49,6 +49,16 @@ app.factory('journalFactory', ['$http','$location', function($http, $location) {
     }
   }
 
+  factory.getContent = function(id, callback){
+    $http({
+      method:'get',
+      url:'/content/'+id
+    }).then(function(res){
+      callback(res.data)
+    }, function(){
+      console.log('sorry buddy...could not get the content');
+    })
+  }
 
   return factory;
   }])

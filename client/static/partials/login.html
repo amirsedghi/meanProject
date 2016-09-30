@@ -20,7 +20,7 @@
       </form>
 
       <div ng-if = "newUser.firstName.length>0 && newUser.lastName.length>0 && newUser.email.length>0 && newUser.password.length >7 && newUser.password == checking.passwordConfirm">
-        <button type="button" ng-click = 'register(newUser)' value='Register'>Register</button>
+        <button type="button" ng-click = 'register(newUser)' value='Register' id='loginButton'>Register</button>
       </div>
 
 
@@ -51,10 +51,10 @@
           Your record was not found, please check your email and password
         </p>
       </form>
-      <a href="" id='register'>don't have an account? please register...</a>
       <div class="" ng-if = "user.email.length > 0 && user.password.length > 0 ">
         <button id='loginButton' ng-click = 'login(user)'>Login</button>
       </div>
+      <a href="" id='register'>don't have an account? Register here...</a>
     </div>
 
   </div>

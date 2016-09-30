@@ -1,4 +1,55 @@
-.enterContent{
-  padding-top: 60px;
+*{
 
+  font-weight: 600;
+}
+
+h2{
+  font-weight: 700;
+}
+
+.container{
+  margin: 0px;
+    font-family: "Amatica SC" , cursive;
+  background: url(../images/book.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height:1220px;
+  background-size: 1920px 100%;
+}
+
+.enterContent{
+  padding-top: 5px;
+  margin-top: 60px;
+  border-radius: 10px;
+  text-align: center;
+  width: 500px;
+  height:580px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(0, 0, 0, 0.5);
+  padding-bottom: 30px;
+}
+
+
+input{
+  margin-left: 165px;
+}
+
+select{
+  margin-left: 165px;
+}
+
+textarea{
+  margin-left: 120px;
+}
+
+#uploadButton{
+  font-weight: 700;
+  margin-left: 165px;
+}
+
+#add_button{
+margin-left: 45px;
 }

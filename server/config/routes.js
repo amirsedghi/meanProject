@@ -19,6 +19,7 @@ module.exports = function(app){
   app.get('/getjournal/:id', journal.getJournal)
   app.post('/journal/:id/newCategory', journal.newCategory);
   app.post('/journal/:id/newcontent', journal.newContent);
+  app.get('/content/:id', journal.getContent);
 }
 
 

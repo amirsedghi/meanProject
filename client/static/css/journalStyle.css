@@ -1,49 +1,14 @@
 
-.image-box{
-  display: inline-block;
-  margin-left: 4%;
-}
-#friends{
-  padding-top:3%;
-}
 
-
-.friends-images{
-
-  width: 100%;
-  height:100%;
-  display:inline-block;
-  border-radius: 50%;
-  border: 1px solid black;
-  min-width: 220px;
-  min-height: 220px;
-  max-width: 220px;
-  max-height: 220px;
-
-
-}
 .journalcontainer{
   display:inline-block;
 }
-.welcome{
-  padding-bottom: 10%;
-}
+
 .welcometext{
   text-align: center;
   font-weight: 600;
 }
-.mainphoto{
-  width:100%;
-  height:100%;
-  border-radius: 50%;
-  border: 4px solid black;
-  box-shadow: 5px 5px lightgrey;
-  min-width: 300px;
-  min-height: 300px;
-  max-width: 500px;
-  max-height: 500px;
 
-}
 
 .line{
   margin-top:50%

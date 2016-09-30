@@ -1,4 +1,9 @@
-<div ng-controller="userController">
+<link rel="stylesheet" href="../css/home.css">
+<link href="https://fonts.googleapis.com/css?family=Amatica+SC" rel="stylesheet">
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='../jquery/home.js'></script>
+
+<div id="" ng-controller="userController">
 
   <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -21,11 +26,6 @@
 
     </div>
   </div>
-
-
-
-    <a href="/logout">Logout</a> <a href="#/profile">profile</a>
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Make A Connection</button>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <link rel="stylesheet" href="../css/journalStyle.css">
   <!-- Brand and toggle get grouped for better mobile display -->
@@ -39,7 +39,6 @@
           <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#/profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-            <li><a href="#/setting"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
             <li><a href="/logout"><span class="glyphicon glyphicon-remove-sign"></span> Log Out</a></li>
           </ul>
       </li>
@@ -59,37 +58,53 @@
   </div><!-- /.navbar-collapse -->
 </nav>
 <link rel="stylesheet" href="../css/journalStyle.css">
-  <div class="container">
+  <div id='ground'>
     <div id="content">
       <div class="welcome">
-        <h1 class="welcometext">Welcome {{currentuser.firstName}}</h1>
-        <center>
-          <a href="#/profile"><img class="mainphoto" src="{{currentuser.picture}}" alt="" /></a>
-        </center>
+        <div class="nome" ng-if = 'currentuser.picture.length == 0'>
+          <a href="#profile">Add a photo...</a>
+        </div>
+        <div class='topme' ng-if = 'currentuser.picture.length>0'>
+          <div class="me">
+            <a href="#/profile"><img class="mainphoto" src="{{currentuser.picture}}" alt="" /></a>
+          </div>
+          <div class="welcomeMe">
+            <h1>Welcome to your personal journal {{currentuser.firstName}}!</h1>
+          </div>
+        </div>
       </div>
-<div class="line">
-
-</div>
       <div id="friends">
+        <div class='awesome' ng-if= 'currentuser.journals.length>0'>
+          <h1>Here are your awesome friends...</h1>
+        </div>
+        <div class="awesome" ng-if = 'currentuser.journals.length<1'>
+          <h1>What are you waiting for?! Add an awesome friend!</h1>
+        </div>
         <div class="image-box"ng-repeat="journal in currentuser.journals">
           <div ng-if="journal._friend1._id!=currentuser._id">
-            <div class="image-box">
-              <a href="#/journal/{{journal._id}}"><img class="friends-images" src="{{journal._friend1.picture}}" alt="" /></a>
+            <div class="fimage-box">
+              <div class="fImage">
+                <a href="#/journal/{{journal._id}}"><img class="friends-images" src="{{journal._friend1.picture}}" alt="" />  </a>
+              </div>
+              <div class="fName">
+                <a href="#/journal/{{journal._id}}">{{journal._friend1.firstName}} {{journal._friend1.firstName}}</a>
+              </div>
+
             </div>
           </div>
           <div ng-if="journal._friend2._id!=currentuser._id">
-            <div class="image-box">
-              <a href="#/journal/{{journal._id}}"><img class="friends-images" src="{{journal._friend2.picture}}" alt="" /></a>
+            <div class="fimage-box">
+              <div class="fImage">
+                <a href="#/journal/{{journal._id}}"><img class="friends-images" src="{{journal._friend2.picture}}" alt="" />  </a>
+              </div>
+              <div class="fName">
+                <a href="#/journal/{{journal._id}}">{{journal._friend2.firstName}} {{journal._friend2.firstName}}</a>
+              </div>
             </div>
           </div>
         </div>
-          <div class='image-box' ng-if="emptyjournals>0" ng-repeat="i in getNumber(emptyjournals)">
-              <a href="" data-toggle="modal" data-target="#myModal"><img class="friends-images" src="http://www.drodd.com/images15/question-mark22.gif" alt="" /></a>
-          </div>
         </div>
       </div>
-    </div>
-    <div id="right-stuff">
-
-    </div>
   </div>
+
+</div>

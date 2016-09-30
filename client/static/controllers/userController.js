@@ -1,5 +1,5 @@
 
-app.controller('userController', ['$scope','userFactory','$location','$routeParams', function($scope, userFactory, $location, $routeParams, filepickerService){
+app.controller('userController', ['$scope','userFactory','$location','$routeParams', 'filepickerService',function($scope, userFactory, $location, $routeParams, filepickerService){
   var redirector = function(){
     $location.url('/dashboard')
   }
@@ -21,6 +21,17 @@ app.controller('userController', ['$scope','userFactory','$location','$routePara
       $scope.response = res;
     })
   }
+
+  $scope.logout = function (){
+    filepicker.logout({
+    onSuccess()
+      { console.log('Logout Success!'); },
+    onError(msg, status)
+      { console.log('Logout Error: ', msg); },
+    });
+  }
+
+  $scope.logout();
 
   $scope.login = function(user){
     userFactory.login(user, function(){
@@ -58,16 +69,17 @@ app.controller('userController', ['$scope','userFactory','$location','$routePara
   $scope.getUser();
 
   $scope.sendRequest = function(friend){
+    console.log('we get here for sure!!!!!');
     if($scope.currentuser.journals.length >= 4){
       alert('You have already reached the maxiumum number of journals.')
     }else if($scope.currentuser.journals.length==0){
       userFactory.sendRequest(friend._id);
-    }
-    else if(findOne($scope.currentuser.journals[0]._id, friend.journals)){
-      alert('You have already added this user.')
-    }else{
+    }else if($scope.currentuser.journals.length>0) {
+      if(findOne($scope.currentuser.journals[0]._id, friend.journals)){
+        alert('You have already added this user.')
+      }else{
       userFactory.sendRequest(friend._id);
-    }
+      }
 
   }
 
