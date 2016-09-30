@@ -16,7 +16,7 @@
         <div class="modal-body">
           <input ng-click="getAllUsers()" placeholder="Search..." type="text" ng-model="userFilter">
           <div ng-repeat="user in allusers|filter:userFilter|limitTo:3">
-              <b>{{user.username}}</b> {{user.firstName}} {{user.lastName}} <button type="button" data-dismiss="modal" class="btn btn-default" ng-click="sendRequest(user)">Add</button>
+              <b>{{user.username}}</b> {{user.firstName}} {{user.lastName}} <button type="button" data-dismiss="modal" class="btn btn-default" ng-click="sendRequest(user)"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
           </div>
         </div>
         <div class="modal-footer">
