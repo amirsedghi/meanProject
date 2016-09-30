@@ -14,7 +14,22 @@ h2{
   height: 1100px;
 }
 
-
+.chapterbackground{
+  background: url(https://images.unsplash.com/uploads/1413259835094dcdeb9d3/6e609595?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=998&q=80&cs=tinysrgb) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 1100px;
+}
+.categorybackground{
+  background: url(https://images.unsplash.com/photo-1467474672559-8800efd88ce3?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=1042&q=80&cs=tinysrgb) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 1100px;
+}
 
 .enterContent{
     font-family: "Amatica SC" , cursive;
@@ -30,6 +45,30 @@ h2{
   padding-bottom: 30px;
 }
 
+.selectChapter{
+  font-family: "Amatica SC" , cursive;
+padding-top: 5px;
+margin-top: 60px;
+border-radius: 10px;
+text-align: center;
+width: 500px;
+height:200px;
+margin-left: auto;
+margin-right: auto;
+background: rgba(0, 0, 0, 0.5);
+padding-bottom: 30px;
+}
+
+.chapter select{
+  margin-left:0px;
+}
+.chapter{
+  font-family: sans-serif;
+}
+.chapter button{
+  font-family: sans-serif;
+  font-weight: 600;
+}
 
 input{
   margin-left: 165px;
