@@ -60,10 +60,13 @@ app.controller('userController', ['$scope','userFactory','$location','$routePara
   $scope.sendRequest = function(friend){
     if($scope.currentuser.journals.length >= 4){
       alert('You have already reached the maxiumum number of journals.')
-    }else if(findOne($scope.currentuser.journals[0]._id, friend.journals)){
+    }else if($scope.currentuser.journals.length==0){
+      userFactory.sendRequest(friend._id);
+    }
+    else if(findOne($scope.currentuser.journals[0]._id, friend.journals)){
       alert('You have already added this user.')
     }else{
-    userFactory.sendRequest(friend._id);
+      userFactory.sendRequest(friend._id);
     }
 
   }

@@ -49,7 +49,8 @@
           <ul class="dropdown-menu">
             <div ng-if="currentuser.requests.length>0">
               <div ng-repeat="request in currentuser.requests">
-                <li><b>{{request.username}}</b>  <button type="button" name="button" class="btn btn-default" ng-click="acceptRequest(request._id)" style="background-color:#31B0D5; color:white;"><span class="glyphicon glyphicon-ok"></span></button><button type="button" name="button" ng-click="denyRequest(request._id)"class="btn btn-default" style="background-color:#fc8888; color:white;"><span class="glyphicon glyphicon-remove"></button>
+                <li><b>{{request.username}}</b>  <button type="button" name="button" class="btn btn-default" ng-click="acceptRequest(request._id)" style="background-color:#31B0D5; color:white;"><span class="glyphicon glyphicon-ok"></span></button><button type="button" name="button" ng-click="denyRequest(request._id)"class="btn btn-default" style="background-color:#fc8888; color:white;">
+                  <span class="glyphicon glyphicon-remove"></span></button></li>
               </div>
             </div>
           </ul>
