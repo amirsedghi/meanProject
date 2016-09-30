@@ -8,6 +8,7 @@
 }
 
 
+
 .friends-images{
 
   width: 100%;
@@ -15,10 +16,10 @@
   display:inline-block;
   border-radius: 50%;
   border: 1px solid black;
-  min-width: 220px;
-  min-height: 220px;
-  max-width: 220px;
-  max-height: 220px;
+  min-width: 100px;
+  min-height: 100px;
+  max-width: 150px;
+  max-height: 150px;
 
 
 }
@@ -37,12 +38,12 @@
   height:100%;
   border-radius: 50%;
   border: 4px solid black;
-  box-shadow: 5px 5px lightgrey;
-  min-width: 300px;
-  min-height: 300px;
-  max-width: 500px;
-  max-height: 500px;
-
+  /*min-width: 300px;
+  min-height: 300px;*/
+  max-width: 300px;
+  max-height: 300px;
+  margin-top: 50px;
+  margin-left: 30px;
 }
 
 .line{

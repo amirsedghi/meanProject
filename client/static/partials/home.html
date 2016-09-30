@@ -1,4 +1,9 @@
-<div ng-controller="userController">
+<link rel="stylesheet" href="../css/home.css">
+<link href="https://fonts.googleapis.com/css?family=Amatica+SC" rel="stylesheet">
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='../jquery/home.js'></script>
+
+<div id="" ng-controller="userController">
 
   <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -21,11 +26,6 @@
 
     </div>
   </div>
-
-
-
-    <a href="/logout">Logout</a> <a href="#/profile">profile</a>
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Make A Connection</button>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <link rel="stylesheet" href="../css/journalStyle.css">
   <!-- Brand and toggle get grouped for better mobile display -->
@@ -58,17 +58,22 @@
   </div><!-- /.navbar-collapse -->
 </nav>
 <link rel="stylesheet" href="../css/journalStyle.css">
-  <div class="container">
+  <div id='ground'>
     <div id="content">
       <div class="welcome">
-        <h1 class="welcometext">Welcome {{currentuser.firstName}}</h1>
-        <center>
-          <a href="#/profile"><img class="mainphoto" src="{{currentuser.picture}}" alt="" /></a>
-        </center>
-      </div>
-<div class="line">
+        <div class="">
 
-</div>
+        </div>
+        <div class="nome" ng-if = 'currentuser.picture.length == 0'>
+          <a href="#profile">Add a photo...</a>
+        </div>
+        <div class='me' ng-if = 'currentuser.picture.length>0'>
+          <a href="#/profile"><img class="mainphoto" src="{{currentuser.picture}}" alt="" /></a>
+          <p>
+            {{currentuser.firstName}}
+          </p>
+        </div>
+      </div>
       <div id="friends">
         <div class="image-box"ng-repeat="journal in currentuser.journals">
           <div ng-if="journal._friend1._id!=currentuser._id">
@@ -82,13 +87,8 @@
             </div>
           </div>
         </div>
-          <div class='image-box' ng-if="emptyjournals>0" ng-repeat="i in getNumber(emptyjournals)">
-              <a href="" data-toggle="modal" data-target="#myModal"><img class="friends-images" src="http://www.drodd.com/images15/question-mark22.gif" alt="" /></a>
-          </div>
         </div>
       </div>
-    </div>
-    <div id="right-stuff">
-
-    </div>
   </div>
+
+</div>
