@@ -48,7 +48,7 @@
         <div class="ground">
           <div class="main">
             <div ng-if="journal.content.length< 1">
-              <center><a href="#/journal/{{journal._id}}/newcontent">You have no posts! Click me to add some content!</a></center>
+              <center class="addPost"><a href="#/journal/{{journal._id}}/newcontent">You have no posts! Click me to add some content!</a></center>
             </div>
             <div ng-repeat="content in journal.content|filter:chapterfilter|orderBy:'-create_at'">
               <div class="head">
