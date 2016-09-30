@@ -1,14 +1,61 @@
 *{
-  font-family: "Amatic SC" , cursive;
+  font-family: "Amatica SC" , cursive;
 }
 
 .ground{
-  background: url(../images/sunset.jpeg) no-repeat center center fixed;
+  padding-top: 30px;
+  color: white;
+  background: url(../images/city.gif) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 800px;
+  height:1920px;
+  background-size: 1920px 1080px;
+}
+
+.ground input{
+  border-radius: 5px;
+  color: black;
+  font-size: 20px;
+  font-family: sans-serif;
+  margin-bottom: 15px;
+  background-color: #DCDBD9;
+}
+
+.register input{
+  padding-top: 10px;
+  display: block;
+  margin-left: 40px;
+}
+
+.logreg{
+  padding-top: 5px;
+  margin-top: 60px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(0, 0, 0, 0.5);
+  padding-bottom: 30px;
+}
+
+.login{
+  margin-top: 20px;
+}
+
+#loginButton{
+  color: black;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 20px;
+}
+
+.login input{
+  margin-left: 40px;
+  display: block;
+  margin-bottom: 5px;
 }
 
 #welcome{

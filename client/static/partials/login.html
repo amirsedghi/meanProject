@@ -1,49 +1,63 @@
-<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Amatica+SC" rel="stylesheet">
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='../jquery/login.js'>
+
+</script>
 <link rel="stylesheet" href="../css/login.css">
 
 <div class="ground">
-  <h1 id='welcome'>Welcome to Ui!</h1>
-  <h2>Register</h2>
-  <form>
-    <input type="text" name="firstName" ng-model = 'newUser.firstName' placeholder="First Name">
-    <input type="text" name="lastName" ng-model = 'newUser.lastName' placeholder="Last Name">
-    <input type="text" name="lastName" ng-model = 'newUser.username' placeholder="Username">
-    <input type="text" name="email" ng-model = 'newUser.email' placeholder="Email">
-    <input type="password" name="password" ng-model = 'newUser.password' placeholder="Password">
-    <input type="password" name="password_confirmation" ng-model = 'checking.passwordConfirm' placeholder="Password Confirmation">
-  </form>
+  <h1 id='welcome'>Welcome to U&I!</h1>
+  <div class="logreg">
+    <div class="register">
+      <h2>Register</h2>
+      <form>
+        <input type="text" name="firstName" ng-model = 'newUser.firstName' placeholder="First Name">
+        <input type="text" name="lastName" ng-model = 'newUser.lastName' placeholder="Last Name">
+        <input type="text" name="lastName" ng-model = 'newUser.username' placeholder="Username">
+        <input type="text" name="email" ng-model = 'newUser.email' placeholder="Email">
+        <input type="password" name="password" ng-model = 'newUser.password' placeholder="Password">
+        <input type="password" name="password_confirmation" ng-model = 'checking.passwordConfirm' placeholder="Password Confirmation">
+      </form>
 
-  <div ng-if = "newUser.firstName.length>0 && newUser.lastName.length>0 && newUser.email.length>0 && newUser.password.length >7 && newUser.password == checking.passwordConfirm">
-    <button type="button" ng-click = 'register(newUser)' value='Register'>Register</button>
+      <div ng-if = "newUser.firstName.length>0 && newUser.lastName.length>0 && newUser.email.length>0 && newUser.password.length >7 && newUser.password == checking.passwordConfirm">
+        <button type="button" ng-click = 'register(newUser)' value='Register'>Register</button>
+      </div>
+
+
+      <p ng-if = "newUser.firstName.length < 1">
+        First name cannot be empty
+      </p>
+      <p ng-if = 'newUser.lastName.length < 1'>
+        Last name cannot be empty
+      </p>
+      <p ng-if = 'newUser.email.length<1'>
+        Email cannot be empty
+      </p>
+      <p ng-if = 'newUser.password.length < 8'>
+        Password must be 8 characters or longer
+      </p>
+      <p ng-if = 'newUser.password != checking.passwordConfirm'>
+        Confirmation does not match the password
+      </p>
+      <a href="" id="loginAgain">login...</a>
+    </div>
+    <div class="login">
+      <h2>Login</h2>
+      <form>
+        <input type="text" name="email" ng-model = 'user.email' placeholder="Email">
+        <input type="password" name="password" ng-model = 'user.password' placeholder="Password">
+
+        <p ng-if = "check == 'bad'">
+          Your record was not found, please check your email and password
+        </p>
+      </form>
+      <a href="" id='register'>don't have an account? please register...</a>
+      <div class="" ng-if = "user.email.length > 0 && user.password.length > 0 ">
+        <button id='loginButton' ng-click = 'login(user)'>Login</button>
+      </div>
+    </div>
+
   </div>
 
 
-  <p ng-if = "newUser.firstName.length < 1">
-    First name cannot be empty
-  </p>
-  <p ng-if = 'newUser.lastName.length < 1'>
-    Last name cannot be empty
-  </p>
-  <p ng-if = 'newUser.email.length<1'>
-    Email cannot be empty
-  </p>
-  <p ng-if = 'newUser.password.length < 8'>
-    Password must be 8 characters or longer
-  </p>
-  <p ng-if = 'newUser.password != checking.passwordConfirm'>
-    Confirmation does not match the password
-  </p>
-
-  <h2>Login</h2>
-  <form>
-    <input type="text" name="email" ng-model = 'user.email'>
-    <input type="password" name="password" ng-model = 'user.password'>
-
-    <p ng-if = "check == 'bad'">
-      Your record was not found, please check your email and password
-    </p>
-  </form>
-  <div class="" ng-if = "user.email.length > 0 && user.password.length > 0 ">
-    <button ng-click = 'login(user)'>Login</button>
-  </div>
 </div>

@@ -26,7 +26,7 @@
 
     <a href="/logout">Logout</a> <a href="#/profile">profile</a>
   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Make A Connection</button>
-<nav class="navbar navbar-light navbar-fixed-top" style="background-color: #e3f2fd;" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <link rel="stylesheet" href="../css/journalStyle.css">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
@@ -49,7 +49,7 @@
           <ul class="dropdown-menu">
             <div ng-if="currentuser.requests.length>0">
               <div ng-repeat="request in currentuser.requests">
-                <li><b>{{request.username}}</b>  <button type="button" name="button" class="btn btn-default" ng-click="acceptRequest(request._id)" style="background-color:#31B0D5; color:white;">Accept</button><button type="button" name="button" ng-click="denyRequest(request._id)"class="btn btn-default" style="background-color:#fc8888; color:white;">Deny</button>
+                <li><b>{{request.username}}</b>  <button type="button" name="button" class="btn btn-default" ng-click="acceptRequest(request._id)" style="background-color:#31B0D5; color:white;"><span class="glyphicon glyphicon-ok"></span></button><button type="button" name="button" ng-click="denyRequest(request._id)"class="btn btn-default" style="background-color:#fc8888; color:white;"><span class="glyphicon glyphicon-remove"></button>
               </div>
             </div>
           </ul>
