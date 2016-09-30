@@ -26,7 +26,7 @@
         <br>
         <br>
         <br>
-        <div ng-repeat="content in journal.content|orderBy:'-create_at'">
+        <div ng-repeat="content in journal.content|filter:chapterfilter|orderBy:'-create_at'">
           <h3>{{content.title}}</h3>
           <p>
             {{content.description}}

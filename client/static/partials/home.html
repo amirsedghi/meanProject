@@ -47,7 +47,11 @@
       <li class="dropdown">
           <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-exclamation-sign"></span><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Put request here</a></li>
+            <div ng-if="currentuser.requests.length>0">
+              <div ng-repeat="request in currentuser.requests">
+                <li><b>{{request.username}}</b>  <button type="button" name="button" class="btn btn-default" ng-click="acceptRequest(request._id)" style="background-color:#31B0D5; color:white;">Accept</button><button type="button" name="button" ng-click="denyRequest(request._id)"class="btn btn-default" style="background-color:#fc8888; color:white;">Deny</button>
+              </div>
+            </div>
           </ul>
       </li>
     </ul>
@@ -69,12 +73,12 @@
         <div class="image-box"ng-repeat="journal in currentuser.journals">
           <div ng-if="journal._friend1._id!=currentuser._id">
             <div class="image-box">
-              <a href="#/journal/{{journal._id}}"><img class="friends-images" src="{{currentuser.picture}}" alt="" /></a>
+              <a href="#/journal/{{journal._id}}"><img class="friends-images" src="{{journal._friend1.picture}}" alt="" /></a>
             </div>
           </div>
           <div ng-if="journal._friend2._id!=currentuser._id">
             <div class="image-box">
-              <a href="#/journal/{{journal._id}}"><img class="friends-images" src="{{currentuser.picture}}" alt="" /></a>
+              <a href="#/journal/{{journal._id}}"><img class="friends-images" src="{{journal._friend2.picture}}" alt="" /></a>
             </div>
           </div>
         </div>
@@ -103,11 +107,6 @@
 <br>
 
 {{allusers}}
-  <div ng-if="currentuser.requests.length>0">
-    <b>Requests!</b>
-    <div ng-repeat="request in currentuser.requests">
-      <b>{{request.username}}</b> {{request.firstName}} {{request.lastName}} <button type="button" name="button" class="btn btn-default" ng-click="acceptRequest(request._id)" style="background-color:#31B0D5; color:white;">Accept</button><button type="button" name="button" ng-click="denyRequest(request._id)"class="btn btn-default" style="background-color:#fc8888; color:white;">Deny</button>
-    </div>
-  </div>
+
 
 </div>
