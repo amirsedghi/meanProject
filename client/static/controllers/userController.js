@@ -84,11 +84,20 @@ app.controller('userController', ['$scope','userFactory','$location','$routePara
   }
 }
   $scope.acceptRequest = function(friend){
-    userFactory.acceptRequest(friend, function(journal){
-      $location.url('/journal/'+journal)
-    });
+    if($scope.currentuser.journals.length<4){
+      userFactory.acceptRequest(friend, function(journal){
+        $location.url('/journal/'+journal)
+      });
+    }
+    else{
+      console.log('I GOT HERE********');
+      $scope.denyRequest(friend);
+      alert('you already have four journals...');
+    }
   }
+
   $scope.denyRequest = function(friend){
     userFactory.denyRequest(friend, $scope.getUser);
   }
+
 }])

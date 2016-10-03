@@ -35,7 +35,8 @@
     <h1>Hi {{user.firstName}}</h1>
     <p>Upload a profile photo!</p>
     <button type="button" class = 'btn btn-default' id='uploadB' ng-click = "uploadImage()">upload</button>
-    <div class="">
+
+    <div ng-if = 'user.picture.length >0'>
       <img id='image' src="{{user.picture}}" alt="" />
     </div>
   </div>
